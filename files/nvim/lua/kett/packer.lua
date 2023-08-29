@@ -50,20 +50,22 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'
     use 'simrat39/symbols-outline.nvim'
 
-    use ({
-        'catppuccin/nvim',
-        require("catppuccin").setup({
-            flavour = "mocha",
-            transparent_background = false,
-            term_colors = true,
-            dim_inactive = {
-                enabled = true,
-                shade = "dark",
-                percentage = 0.0, -- Counterintuitively, 0.0 is the darkest it goes.
-                                  -- The color matches up with the backdrop color on zen-mode, set to 0.8
-            }
-        }),
-    })
+    use {
+        "catppuccin/nvim",
+        config = function()
+		require("catppuccin").setup({
+			flavour = "mocha",
+			transparent_background = false,
+			term_colors = true,
+			dim_inactive = {
+				enabled = true,
+				shade = "dark",
+				percentage = 0.0, -- Counterintuitively, 0.0 is the darkest it goes.
+				-- The color matches up with the backdrop color on zen-mode, set to 0.8
+			}
+		})
+	end,
+    }
 
     use 'RRethy/nvim-align'
     use 'OmniSharp/Omnisharp-vim'
