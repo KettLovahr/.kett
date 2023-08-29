@@ -1,7 +1,6 @@
 require("kett.remap")
 require("kett.packer")
 require("kett.diagnostic")
-require("kett.nvim-qt")
 
 vim.opt.termguicolors = true
 
@@ -26,8 +25,6 @@ vim.opt.updatetime = 100
 vim.opt.fillchars= "eob: ,"
 
 vim.opt.guifont = "Fira Code:h12"
-
-vim.cmd("source ~/.config/nvim/functions.vim")
 
 vim.api.nvim_create_autocmd(
     {"BufEnter"}, {
