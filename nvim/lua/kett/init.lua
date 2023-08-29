@@ -23,6 +23,8 @@ vim.opt.incsearch = true
 
 vim.opt.updatetime = 100
 
+vim.opt.fillchars= "eob: ,"
+
 vim.opt.guifont = "Fira Code:h12"
 
 vim.cmd("source ~/.config/nvim/functions.vim")
