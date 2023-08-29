@@ -19,4 +19,4 @@ function link() {
     echo ":: Done"
 }
 
-link "$PWD/nvim" "$HOME/.config/nvim" "Neovim"
+link "$PWD/files/nvim" "$HOME/.config/nvim" "Neovim"
