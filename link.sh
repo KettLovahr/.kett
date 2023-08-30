@@ -1,7 +1,7 @@
 #!/bin/bash
 cd "$(dirname "$0")" || exit
 
-function link() {
+function create_config_link() {
     SOURCE="$1"
     TARGET="$2"
     NAME="$3"
@@ -19,4 +19,4 @@ function link() {
     echo ":: Done"
 }
 
-link "$PWD/files/nvim" "$HOME/.config/nvim" "Neovim"
+create_config_link "$PWD/files/nvim" "$HOME/.config/nvim" "Neovim"
