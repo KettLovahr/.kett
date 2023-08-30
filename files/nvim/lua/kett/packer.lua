@@ -70,7 +70,7 @@ return require('packer').startup(function(use)
     use 'RRethy/nvim-align'
     use 'OmniSharp/Omnisharp-vim'
 
-    use({
+    use {
         "epwalsh/obsidian.nvim",
         requires = {
             -- Required.
@@ -100,7 +100,7 @@ return require('packer').startup(function(use)
 
             })
         end,
-    })
+    }
 
     use 'Exafunction/codeium.vim'
 
