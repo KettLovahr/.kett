@@ -154,7 +154,7 @@ ins_right {
 
 ins_right {
     wordcount,
-    fmt = function(str) return str .. "w" end,
+    fmt = function(str) if str == "0" then return "" end return str .. "w" end,
     cond = conditions.buffer_not_empty,
     color = { fg = colors.blue },
 }
