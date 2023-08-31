@@ -10,7 +10,7 @@ function create_config_link() {
         echo "!! $NAME configuration is already a link, unlinking"
         unlink "$TARGET"
     else
-        if [[ -d "$TARGET" ]]; then
+        if [[ -d "$TARGET" || -f "$TARGET" ]]; then
             echo "!! Backing up old $NAME configuration"
             mv "$TARGET" "$PWD/old"
         fi
