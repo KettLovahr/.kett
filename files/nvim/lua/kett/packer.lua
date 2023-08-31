@@ -62,7 +62,21 @@ return require('packer').startup(function(use)
 				shade = "dark",
 				percentage = 0.0, -- Counterintuitively, 0.0 is the darkest it goes.
 				-- The color matches up with the backdrop color on zen-mode, set to 0.8
-			}
+			},
+            styles = {
+            comments = { "italic" },
+            conditionals = { "bold" },
+            loops = {},
+            functions = {},
+            keywords = {},
+            strings = { "italic" },
+            variables = {},
+            numbers = {},
+            booleans = { "italic" },
+            properties = {},
+            types = {},
+            operators = {},
+        },
 		})
 	end,
     }
