@@ -21,12 +21,41 @@ print_exit() {
 	fi
     fi
 }
+
+left_prompt() {
+    bracket=$fg[green]
+    user=$fg[cyan]
+    branch=$fg[yellow]
+    directory=$fg[cyan]
+
+    echo -n "%{$bracket%}%B[%{$user%}%n%{$bracket%}]%b"
+
+    if [[ -a .git ]]
+    then
+        GIT=$(git branch | grep "*" | cut -b 3-) 
+    fi
+
+    if [[ -n "$GIT" ]]
+    then
+        echo -n "%{$branch%}[$GIT]%{$reset_color%}"
+    else
+        echo -n "%{$reset_color%}"
+    fi
+
+    echo -n "%{$directory%} %3~ %{$reset_color%}"
+}
+
+right_prompt() {
+    echo -n "%{$fg[white]%}$(date +%T)%{$bg[default]%}%b"
+}
+
+
 add-zsh-hook preexec track
 add-zsh-hook precmd print_exit
 
-PS1='$status_code$(zsh ~/.zshprompt)'
+PS1='$status_code$(left_prompt)'
 
-RPROMPT='$(zsh ~/.zshrprompt)'
+RPROMPT='$(right_prompt)'
 
 setopt histignorealldups sharehistory
 setopt autocd
