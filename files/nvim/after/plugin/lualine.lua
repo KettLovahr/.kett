@@ -1,3 +1,8 @@
+-- Function for custom component
+local function wordcount()
+    return tostring(vim.fn.wordcount().words)
+end
+
 
 -- Eviline config for lualine
 -- Author: shadmansaleh
@@ -145,7 +150,13 @@ ins_right {
   -- filesize component
   'filesize',
   cond = conditions.buffer_not_empty,
+}
 
+ins_right {
+    wordcount,
+    fmt = function(str) return str .. "w" end,
+    cond = conditions.buffer_not_empty,
+    color = { fg = colors.blue },
 }
 
 ins_right {
