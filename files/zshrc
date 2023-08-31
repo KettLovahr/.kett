@@ -1,0 +1,167 @@
+setopt promptsubst
+
+autoload -U colors && colors
+
+autoload -Uz add-zsh-hook
+
+track() {
+    zsh_exec_command=1
+}
+print_exit() {
+    local -i statusc=$?
+    if [[ $statusc -ne 0 ]]; then
+        if [[ $zsh_exec_command -ne 0 ]]; then
+            status_code="%{$fg[red]%}[$statusc]"
+            unset zsh_exec_command
+        fi
+    else
+        if [[ $zsh_exec_command -ne 0 ]]; then
+	    status_code=""
+            unset zsh_exec_command
+	fi
+    fi
+}
+add-zsh-hook preexec track
+add-zsh-hook precmd print_exit
+
+PS1='$status_code$(zsh ~/.zshprompt)'
+
+RPROMPT='$(zsh ~/.zshrprompt)'
+
+setopt histignorealldups sharehistory
+setopt autocd
+unsetopt nomatch
+
+alias "ls"="ls --color"
+alias "l"="ls -la"
+alias "less"="less -R"
+alias "tmux"="TERM=xterm-256color tmux"
+alias "vim"="nvim"
+alias "sudo"="sudo "
+
+# mmmm zypper
+alias "zyp"="zypper"
+alias "zup"="sudo zypper dup"
+alias "zin"="sudo zypper in"
+alias "zse"="zypper se"
+alias "zrm"="sudo zypper rm --clean-deps"
+
+# now, how about apt
+alias "apin"="sudo apt install"
+alias "apse"="apt search"
+alias "apli"="apt list"
+alias "apre"="sudo apt remove"
+alias "apup"="sudo apt update"
+alias "aupg"="sudo apt update && sudo apt full-upgrade"
+
+# pacman wakkawakka
+alias "pin"="sudo pacman -S"
+alias "pup"="sudo pacman -Syu"
+alias "pse"="pacman -Ss"
+alias "pre"="sudo pacman -Rns"
+
+alias "please"="sudo $history[1]"
+
+fcd ()
+{
+    if [[ "$1" != "" ]]; then
+        DIR=$1
+    else
+        DIR=$PWD
+    fi
+    cd "`find $DIR -maxdepth 6 -type d | fzf -x --border=sharp --margin 0 --padding 0 --layout=reverse --no-color --height 36 --color=fg+:green,hl:yellow --preview="tree -L 3 {}" --preview-window="down,80%"`"
+}
+fls ()
+{
+    cd "`ls --color=never -a -d */ .*/ | fzf +s -e -x --border=sharp --margin 2 --padding 0 --layout=reverse --no-color --height 24 --color=fg+:green,hl:yellow`"
+}
+
+bindkey -s "^K" "fcd ~\n"
+
+export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
+export NVR_CMD=nvim-qt
+
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=5000
+SAVEHIST=5000
+HISTFILE=~/.zsh_history
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^ ' autosuggest-accept
+
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source ~/.zsh/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
+ZSH_FZF_HISTORY_SEARCH_FZF_ARGS="+s +m -x -e --border=sharp --margin 0 --padding 1 --layout=reverse --no-color --height 16 --color=fg+:green,hl:yellow"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+
+export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$(echo $PATH):/usr/sbin:/sbin:/usr/local/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/Android/Sdk/tools/bin"
+export PATH="$PATH:$HOME/.dotnet/"
+export EDITOR=nvim
+export STEAM_COMPAT_DATA_PATH="/home/bluefire/.proton"
+
+function help () {
+	    curl "https://cht.sh/$@" | less --use-color
+    }
+
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
+bindkey    "^[[3~"          delete-char
+bindkey    "^[3;5~"         delete-char
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+bindkey "$terminfo[khome]" beginning-of-line
+bindkey "$terminfo[kend]" end-of-line
+bindkey "$terminfo[kdch1]" delete-char
+
+if [ $TERM = "linux" ]; then
+    echo -en "\e]P0000000"
+    echo -en "\e]P1D0004B"
+    echo -en "\e]P22ECC5E"
+    echo -en "\e]P3FF8000"
+    echo -en "\e]P43A50C6"
+    echo -en "\e]P5CB2688"
+    echo -en "\e]P600A2E8"
+    echo -en "\e]P7898E8F"
+    echo -en "\e]P84E5158"
+    echo -en "\e]P9FF2C0F"
+    echo -en "\e]PA65FF00"
+    echo -en "\e]PBFFF45E"
+    echo -en "\e]PC8177FA"
+    echo -en "\e]PDE12D66"
+    echo -en "\e]PE3BCAFF"
+    echo -en "\e]PFABB1B2"
+fi
+
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^X^e' edit-command-line
