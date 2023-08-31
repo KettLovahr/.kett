@@ -1,0 +1,9 @@
+[submodule "files/zsh/zsh-autosuggestions"]
+	path = files/zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "files/zsh/zsh-fzf-history-search"]
+	path = files/zsh/zsh-fzf-history-search
+	url = https://github.com/joshskidmore/zsh-fzf-history-search
+[submodule "files/zsh/zsh-syntax-highlighting"]
+	path = files/zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

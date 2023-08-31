@@ -24,7 +24,7 @@ vim.opt.updatetime = 100
 
 vim.opt.fillchars= "eob: ,"
 
-vim.opt.guifont = "Fira Code:h12"
+vim.opt.guifont = "Victor Mono:h12"
 
 vim.api.nvim_create_autocmd(
     {"BufEnter"}, {
