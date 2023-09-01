@@ -69,7 +69,7 @@ return require('packer').startup(function(use)
             loops = {},
             functions = {},
             keywords = {},
-            strings = { "italic" },
+            strings = {},
             variables = {},
             numbers = {},
             booleans = { "italic" },
