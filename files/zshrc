@@ -25,10 +25,11 @@ print_exit() {
 left_prompt() {
     bracket=$fg[green]
     user=$fg[cyan]
+    machine=$fg[red]
     branch=$fg[yellow]
     directory=$fg[cyan]
 
-    echo -n "%{$bracket%}%B[%{$user%}%n%{$bracket%}]%b"
+    echo -n "%{$bracket%}%B[%{$user%}%n%{$branch%}@%{$machine%}%m%{$bracket%}]%b"
 
     if [[ -a .git ]]
     then
