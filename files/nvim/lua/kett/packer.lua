@@ -104,6 +104,12 @@ return require('packer').startup(function(use)
                     ["gf"] = require("obsidian.mapping").gf_passthrough(),
                 },
 
+                templates ={
+                    subdir = "Templates",
+                    date_format = "%Y-%m-%d",
+                    time_format = "%H:%M:%S",
+                },
+
                 note_id_func = function (title)
                     if title == nil
                         then
