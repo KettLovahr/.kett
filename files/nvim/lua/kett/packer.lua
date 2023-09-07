@@ -10,7 +10,6 @@ return require('packer').startup(function(use)
         branch = 'main'
     }
 
-    use 'mattn/emmet-vim'
     use 'ap/vim-css-color'
 
     use 'nvim-lualine/lualine.nvim'
