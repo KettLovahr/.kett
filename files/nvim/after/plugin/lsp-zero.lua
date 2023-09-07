@@ -53,7 +53,11 @@ lspconfig.gdscript.setup {
 }
 
 vim.diagnostic.config({
-    virtual_text = false, -- I have my own script to display diagnostics the way I want. `lua/kett/diagnostic.lua`
+    virtual_text = {
+        source = "if_many",
+        prefix = "▎",
+        suffix = " ",
+    },
     severity_sort = true,
     update_in_insert = true
 })

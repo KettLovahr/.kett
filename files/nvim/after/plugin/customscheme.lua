@@ -1,5 +1,3 @@
-ApplyDiagnosticHighlights()
-
 vim.cmd("colorscheme catppuccin-mocha")
 
 vim.cmd("hi Pmenu      guifg=#999999 guibg=#000000")
