@@ -20,3 +20,20 @@ vim.keymap.set("v", "<Leader>c", '"+y') -- Copy selected text to system clipboar
 vim.keymap.set("i", "{<CR>", "{<CR>}<C-c>O")
 vim.keymap.set("i", "[<CR>", "[<CR>]<C-c>O")
 vim.keymap.set("i", "(<CR>", "(<CR>)<C-c>O")
+
+-- Enclose visual selection
+-- I have been using it a lot more often so, might as well make it easier for
+-- myself.
+--
+-- I came up with this I'm sure there's a better approach but it *works* and 
+-- I'm proud of it <3
+vim.keymap.set("v", "(", "<Esc>`>a)<Esc>`<i(<Esc>gvll")
+vim.keymap.set("v", "[", "<Esc>`>a]<Esc>`<i[<Esc>gvll")
+vim.keymap.set("v", "{", "<Esc>`>a}<Esc>`<i{<Esc>gvll")
+vim.keymap.set("v", "'", "<Esc>`>a'<Esc>`<i'<Esc>gvll")
+vim.keymap.set("v", '"', '<Esc>`>a"<Esc>`<i"<Esc>gvll')
+vim.keymap.set("v", "<", "<Esc>`>a><Esc>`<i<<Esc>gvll")
+
+vim.keymap.set("v", "*", "<Esc>`>a*<Esc>`<i*<Esc>gvll")
+vim.keymap.set("v", "_", "<Esc>`>a_<Esc>`<i_<Esc>gvll")
+vim.keymap.set("v", "`", "<Esc>`>a`<Esc>`<i`<Esc>gvll")
