@@ -37,3 +37,5 @@ vim.keymap.set("v", "<", "<Esc>`>a><Esc>`<i<<Esc>gvll")
 vim.keymap.set("v", "*", "<Esc>`>a*<Esc>`<i*<Esc>gvll")
 vim.keymap.set("v", "_", "<Esc>`>a_<Esc>`<i_<Esc>gvll")
 vim.keymap.set("v", "`", "<Esc>`>a`<Esc>`<i`<Esc>gvll")
+
+vim.keymap.set("v", "<C-l>", '<Esc>`>a]<Esc>`<i[<Esc>f]a()<Esc>h"+pll')
