@@ -195,3 +195,10 @@ fi
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '^X^e' edit-command-line
+
+# bun completions
+[ -s "/home/kett/.bun/_bun" ] && source "/home/kett/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
