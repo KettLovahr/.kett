@@ -19,6 +19,9 @@ local lualine = require('lualine')
 local colors = {
   bg       = '#181825',
   inact_bg = '#11111B',
+  surface0 = '#313244',
+  surface1 = '#45475A',
+  surface2 = '#585B70',
   fg       = '#CDD6F4',
   yellow   = '#F9E2AF',
   cyan     = '#94E2D5',
@@ -55,7 +58,7 @@ local config = {
       -- We are going to use lualine_c an lualine_x as left and
       -- right section. Both are highlighted by c theme .  So we
       -- are just setting default looks o statusline
-      normal = { c = { fg = colors.fg, bg = colors.bg } },
+      normal = { c = { fg = colors.fg, bg = colors.bg }, a = { fg = colors.fg, bg = colors.surface1 } },
       inactive = { c = { fg = colors.fg, bg = colors.inact_bg } },
 
       insert = { a = { fg = colors.bg, bg = colors.blue } },
@@ -101,7 +104,7 @@ end
 ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.magenta, gui = 'bold' },
+  color = { fg = colors.magenta, bg = colors.surface0 },
 }
 
 
@@ -120,7 +123,7 @@ ins_left {
 ins_left {
   'branch',
   icon = 'git',
-  color = { fg = colors.violet, gui = 'bold' },
+  color = { fg = colors.violet, bg = colors.surface0 },
 }
 
 ins_left {
@@ -168,14 +171,14 @@ ins_right {
   'o:encoding', -- option component same as &encoding in viml
   fmt = string.upper, -- I'm not sure why it's upper case either ;)
   cond = conditions.hide_in_width,
-  color = { fg = colors.green, gui = 'bold' },
+  color = { fg = colors.green, bg = colors.surface0, gui = 'bold' },
 }
 
 ins_right {
   'fileformat',
   fmt = string.upper,
   icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-  color = { fg = colors.green, gui = 'bold' },
+  color = { fg = colors.green, bg = colors.surface0, gui = 'bold' },
 }
 
 -- Now don't forget to initialize lualine
