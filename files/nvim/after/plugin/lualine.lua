@@ -1,6 +1,11 @@
 -- Function for custom component
 local function wordcount()
-    return tostring(vim.fn.wordcount().words)
+    local end_res = ""
+    if vim.bo.filetype == "markdown" or vim.bo.filetype == "text" then
+        end_res = vim.fn.wordcount().words .. " words ~" ..
+        math.ceil(vim.fn.wordcount().chars / 1000) .. "mins"
+    end
+    return tostring(end_res)
 end
 
 
