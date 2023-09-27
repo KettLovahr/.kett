@@ -62,7 +62,7 @@ setopt histignorealldups sharehistory
 setopt autocd
 unsetopt nomatch
 
-alias "ls"="ls --color"
+alias "ls"="ls --color --hyperlink=auto"
 alias "l"="ls -la"
 alias "less"="less -R"
 alias "tmux"="TERM=xterm-256color tmux"
