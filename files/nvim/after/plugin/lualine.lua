@@ -58,33 +58,162 @@ local config = {
       -- We are going to use lualine_c an lualine_x as left and
       -- right section. Both are highlighted by c theme .  So we
       -- are just setting default looks o statusline
-      normal = { c = { fg = colors.fg, bg = colors.bg }, a = { fg = colors.fg, bg = colors.surface1 } },
-      inactive = { c = { fg = colors.fg, bg = colors.inact_bg } },
+      normal = {
+          c = { fg = colors.fg, bg = colors.bg },
+          a = { fg = colors.fg, bg = colors.surface1 },
+          b = { fg = colors.fg, bg = colors.surface0 },
+      },
+      inactive = {
+          c = { fg = colors.fg, bg = colors.inact_bg },
+          a = { fg = colors.surface2, bg = colors.surface1 },
+          b = { fg = colors.surface1, bg = colors.surface0 },
+      },
 
-      insert = { a = { fg = colors.bg, bg = colors.blue } },
-      visual = { a = { fg = colors.bg, bg = colors.cyan } },
-      replace = { a = { fg = colors.bg, bg = colors.red } },
-      terminal = { a = { fg = colors.bg, bg = colors.magenta } },
+      insert = {
+          a = { fg = colors.bg, bg = colors.blue }
+      },
+      visual = {
+          a = { fg = colors.bg, bg = colors.cyan }
+      },
+      replace = {
+          a = { fg = colors.bg, bg = colors.red }
+      },
+      terminal = {
+          a = { fg = colors.bg, bg = colors.magenta }
+      },
     },
   },
   sections = {
     -- these are to remove the defaults
     lualine_a = { 'mode' },
-    lualine_b = {},
-    lualine_y = {},
-    lualine_z = {},
-    -- These will be filled later
-    lualine_c = {},
+    lualine_b = {
+        {
+            'filename',
+            cond = conditions.buffer_not_empty,
+            color = { fg = colors.magenta },
+        },
+        {
+            'branch',
+            icon = 'git',
+            color = { fg = colors.violet },
+        }
+    },
+    lualine_c = {
+        {
+            'diff',
+            symbols = { added = '+ ', modified = '~ ', removed = '- ' },
+            diff_color = {
+                added = { fg = colors.green },
+                modified = { fg = colors.orange },
+                removed = { fg = colors.red },
+            },
+            cond = conditions.hide_in_width,
+        },
+
+        {
+            'diagnostics',
+            sources = { 'nvim_diagnostic' },
+            symbols = { error = 'E ', warn = 'W ', info = 'I ', hint = 'H ' },
+            diagnostics_color = {
+                color_error = { fg = colors.red },
+                color_warn = { fg = colors.yellow },
+                color_info = { fg = colors.cyan },
+                color_hint = { fg = colors.cyan },
+            },
+        },
+
+        {
+            function()
+                return '%='
+            end,
+        }
+
+    },
+
     lualine_x = {},
+    lualine_y = {
+        { 'location' },
+
+        {
+            '%P',
+            cond = conditions.buffer_not_empty,
+        },
+
+        {
+            'filesize',
+            cond = conditions.buffer_not_empty,
+        },
+
+        {
+            wordcount,
+            cond = conditions.buffer_not_empty,
+            color = { fg = colors.blue },
+        },
+    },
+    lualine_z = {
+        {
+            'o:encoding', -- option component same as &encoding in viml
+            fmt = string.upper, -- I'm not sure why it's upper case either ;)
+            cond = conditions.hide_in_width,
+        },
+
+        {
+            'fileformat',
+            fmt = string.upper,
+            icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+        },
+    },
   },
   inactive_sections = {
     -- these are to remove the defaults
-    lualine_a = {},
-    lualine_b = {},
-    lualine_y = {},
-    lualine_z = {},
-    lualine_c = {},
+    lualine_a = {
+        {'mode'},
+    },
+    lualine_b = {
+        {
+            'filename',
+            color = {fg = colors.surface2},
+            cond = conditions.buffer_not_empty
+        },
+        {
+            'branch',
+            icon = 'git'
+        },
+    },
+    lualine_c = {
+        {
+            'diagnostics',
+            sources = { 'nvim_diagnostic' },
+            symbols = { error = 'E ', warn = 'W ', info = 'I ', hint = 'H ' },
+            diagnostics_color = {
+                error = { fg = colors.surface2 },
+                warn = { fg = colors.surface1 },
+                info = { fg = colors.surface0 },
+                hint = { fg = colors.surface0 },
+            },
+        },
+    },
+
     lualine_x = {},
+    lualine_y = {
+        {
+            'filesize',
+            cond = conditions.buffer_not_empty,
+        },
+    },
+    lualine_z = {
+        {
+            'o:encoding', -- option component same as &encoding in viml
+            fmt = string.upper, -- I'm not sure why it's upper case either ;)
+            cond = conditions.hide_in_width,
+        },
+
+        {
+            'fileformat',
+            fmt = string.upper,
+            icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+        },
+    },
   },
 }
 
@@ -101,86 +230,14 @@ local function ins_right(component)
 end
 
 
-ins_left {
-  'filename',
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.magenta, bg = colors.surface0 },
-}
 
-
-
-ins_left {
-  'branch',
-  icon = 'git',
-  color = { fg = colors.violet, bg = colors.surface0 },
-}
-
-ins_left {
-  'diff',
-  -- Is it me or the symbol for modified us really weird
-  symbols = { added = '+ ', modified = '~ ', removed = '- ' },
-  diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
-  },
-  cond = conditions.hide_in_width,
-}
-
-ins_left {
-    'diagnostics',
-    sources = { 'nvim_diagnostic' },
-    symbols = { error = 'E ', warn = 'W ', info = 'I ', hint = 'H ' },
-    diagnostics_color = {
-        color_error = { fg = colors.red },
-        color_warn = { fg = colors.yellow },
-        color_info = { fg = colors.cyan },
-        color_hint = { fg = colors.cyan },
-    },
-}
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
-ins_left {
-  function()
-    return '%='
-  end,
-}
 
 -- Add components to right sections
 
-ins_right { 'location' }
 
-ins_right {
-    '%P',
-    cond = conditions.buffer_not_empty,
-}
-
-ins_right {
-  -- filesize component
-  'filesize',
-  cond = conditions.buffer_not_empty,
-}
-
-ins_right {
-    wordcount,
-    cond = conditions.buffer_not_empty,
-    color = { fg = colors.blue },
-}
-
-ins_right {
-  'o:encoding', -- option component same as &encoding in viml
-  fmt = string.upper, -- I'm not sure why it's upper case either ;)
-  cond = conditions.hide_in_width,
-  color = { fg = colors.green, bg = colors.surface0, gui = 'bold' },
-}
-
-ins_right {
-  'fileformat',
-  fmt = string.upper,
-  icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-  color = { fg = colors.green, bg = colors.surface0, gui = 'bold' },
-}
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
