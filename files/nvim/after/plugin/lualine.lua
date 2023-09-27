@@ -1,11 +1,6 @@
 -- Function for custom component
 local function wordcount()
-    local end_res = ""
-    if vim.bo.filetype == "markdown" or vim.bo.filetype == "text" then
-        end_res = vim.fn.wordcount().words .. " words ~" ..
-        math.ceil(vim.fn.wordcount().chars / 1000) .. "mins"
-    end
-    return tostring(end_res)
+    return tostring(vim.fn.wordcount().words)
 end
 
 
@@ -17,17 +12,18 @@ local lualine = require('lualine')
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-  bg       = '#202328',
-  fg       = '#bbc2cf',
-  yellow   = '#ECBE7B',
-  cyan     = '#61AFEF',
-  darkblue = '#081633',
-  green    = '#98be65',
-  orange   = '#FF8800',
-  violet   = '#a9a1e1',
-  magenta  = '#c678dd',
-  blue     = '#51afef',
-  red      = '#ec5f67',
+  bg       = '#181825',
+  inact_bg = '#11111B',
+  fg       = '#CDD6F4',
+  yellow   = '#F9E2AF',
+  cyan     = '#94E2D5',
+  darkblue = '#89B4FA',
+  green    = '#A6E3A1',
+  orange   = '#FAB387',
+  violet   = '#B4BEFE',
+  magenta  = '#CBA6F7',
+  blue     = '#89B4FA',
+  red      = '#F38BA8',
 }
 
 local conditions = {
@@ -55,7 +51,7 @@ local config = {
       -- right section. Both are highlighted by c theme .  So we
       -- are just setting default looks o statusline
       normal = { c = { fg = colors.fg, bg = colors.bg } },
-      inactive = { c = { fg = colors.fg, bg = colors.bg } },
+      inactive = { c = { fg = colors.fg, bg = colors.inact_bg } },
 
       insert = { a = { fg = colors.bg, bg = colors.blue } },
       visual = { a = { fg = colors.bg, bg = colors.cyan } },
@@ -159,6 +155,7 @@ ins_right {
 
 ins_right {
     wordcount,
+    fmt = function(str) if str == "0" then return "" end return str .. "w" end,
     cond = conditions.buffer_not_empty,
     color = { fg = colors.blue },
 }
