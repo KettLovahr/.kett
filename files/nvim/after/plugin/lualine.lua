@@ -1,6 +1,11 @@
 -- Function for custom component
 local function wordcount()
-    return tostring(vim.fn.wordcount().words)
+    local end_res = ""
+    if vim.bo.filetype == "markdown" or vim.bo.filetype == "text" then
+        end_res = vim.fn.wordcount().words .. " words ~" ..
+        math.ceil(vim.fn.wordcount().chars / 1000) .. "mins"
+    end
+    return tostring(end_res)
 end
 
 
@@ -154,7 +159,6 @@ ins_right {
 
 ins_right {
     wordcount,
-    fmt = function(str) if str == "0" then return "" end return str .. "w" end,
     cond = conditions.buffer_not_empty,
     color = { fg = colors.blue },
 }
