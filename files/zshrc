@@ -99,7 +99,7 @@ fcd ()
     else
         DIR=$PWD
     fi
-    cd "`find $DIR -maxdepth 6 -type d | fzf -x --border=sharp --margin 0 --padding 0 --layout=reverse --no-color --height 36 --color=fg+:green,hl:yellow --preview="tree -L 3 {}" --preview-window="down,80%"`"
+    cd "`find $DIR -maxdepth 6 -type d | fzf -x --border=sharp --margin 0 --padding 0 --layout=reverse --no-color --height 36 --color=fg+:green,hl:yellow --preview="tree -L 3 {}" --preview-window="right,50%"`"
 }
 fls ()
 {
