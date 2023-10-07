@@ -223,18 +223,11 @@ local config = {
     },
   },
   tabline = {
-      lualine_a = {
-          {
-              'filetype',
-              fmt = function (str)
-                  return string.lpad(string.upper(str), 8, ' ')
-              end
-          }
-      },
+      lualine_a = { },
       lualine_b = {
           {
               "tabs",
-              max_length = vim.o.columns / 3,
+              max_length = vim.o.columns / 1.2,
               mode = 1,
               padding = {
                   left = 0,
@@ -254,16 +247,16 @@ local config = {
                       prefix = "▍"
                   end
 
-                  return prefix .. string.rpad(tostring(context.tabnr), 2, ' ') .. ' ' .. string.lpad(name, 16, ' ') .. (mod == 1 and '●' or ' ')
+                  return prefix .. string.lpad(name, 12, ' ') .. (mod == 1 and '●' or ' ')
               end
           },
       },
-      lualine_y = {
+      lualine_x = {
               function ()
                   return os.date("%Y-%m-%d")
               end
       },
-      lualine_z = {
+      lualine_y = {
           {
               function ()
                   return os.date("%H:%M:%S")
