@@ -8,6 +8,15 @@ local function wordcount()
     return tostring(end_res)
 end
 
+string.lpad = function(str, len, char)
+    if char == nil then char = ' ' end
+    return str .. string.rep(char, len - #str)
+end
+
+string.rpad = function(str, len, char)
+    if char == nil then char = ' ' end
+    return string.rep(char, len - #str) .. str
+end
 
 -- Eviline config for lualine
 -- Author: shadmansaleh
@@ -166,9 +175,7 @@ local config = {
   },
   inactive_sections = {
     -- these are to remove the defaults
-    lualine_a = {
-        {'mode'},
-    },
+    lualine_a = { },
     lualine_b = {
         {
             'filename',
@@ -203,41 +210,68 @@ local config = {
     },
     lualine_z = {
         {
-            'o:encoding', -- option component same as &encoding in viml
-            fmt = string.upper, -- I'm not sure why it's upper case either ;)
+            'o:encoding',
+            fmt = string.upper,
             cond = conditions.hide_in_width,
         },
 
         {
             'fileformat',
             fmt = string.upper,
-            icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+            icons_enabled = false,
         },
     },
   },
+  tabline = {
+      lualine_a = {
+          {
+              'filetype',
+              fmt = function (str)
+                  return string.lpad(string.upper(str), 8, ' ')
+              end
+          }
+      },
+      lualine_b = {
+          {
+              "tabs",
+              max_length = vim.o.columns / 3,
+              mode = 1,
+              padding = {
+                  left = 0,
+                  right = 1
+              },
+              tabs_color = {
+                  active = {fg = colors.fg, bg = colors.surface2 },
+                  inactive = {fg = colors.surface1, bg = colors.surface0}
+              },
+              fmt = function (name, context)
+                  local buflist = vim.fn.tabpagebuflist(context.tabnr)
+                  local winnr = vim.fn.tabpagewinnr(context.tabnr)
+                  local bufnr = buflist[winnr]
+                  local mod = vim.fn.getbufvar(bufnr, '&mod')
+                  local prefix = " "
+                  if context.tabnr == vim.fn.tabpagenr() then
+                      prefix = "▍"
+                  end
+
+                  return prefix .. string.rpad(tostring(context.tabnr), 2, ' ') .. ' ' .. string.lpad(name, 16, ' ') .. (mod == 1 and '●' or ' ')
+              end
+          },
+      },
+      lualine_y = {
+              function ()
+                  return os.date("%Y-%m-%d")
+              end
+      },
+      lualine_z = {
+          {
+              function ()
+                  return os.date("%H:%M:%S")
+              end
+          }
+      }
+  },
 }
-
--- Inserts a component in lualine_c at left section
-local function ins_left(component)
-  table.insert(config.sections.lualine_c, component)
-  table.insert(config.inactive_sections.lualine_c, component)
-end
-
--- Inserts a component in lualine_x ot right section
-local function ins_right(component)
-  table.insert(config.sections.lualine_x, component)
-  table.insert(config.inactive_sections.lualine_x, component)
-end
-
-
-
-
--- Insert mid section. You can make any number of sections in neovim :)
--- for lualine it's any number greater then 2
-
--- Add components to right sections
-
-
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
