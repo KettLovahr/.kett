@@ -32,3 +32,10 @@ vim.api.nvim_create_autocmd(
 		command = "let &l:expandtab = 0"
 	}
 )
+
+vim.api.nvim_create_autocmd(
+    {"TermOpen"}, {
+        pattern = {"*"},
+        command = "setlocal nonumber"
+    }
+)
