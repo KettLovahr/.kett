@@ -135,5 +135,7 @@ return require('packer').startup(function(use)
         end,
     }
 
+    use 'lambdalisue/fern.vim'
+
 end)
 
