@@ -247,7 +247,7 @@ local config = {
                       prefix = "▍"
                   end
 
-                  return prefix .. string.lpad(name, 12, ' ') .. (mod == 1 and '●' or ' ')
+                  return prefix .. string.lpad(name, 12, ' ') .. (mod == 1 and ' ●' or '  ')
               end
           },
       },

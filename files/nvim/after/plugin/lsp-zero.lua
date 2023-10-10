@@ -55,7 +55,7 @@ lspconfig.gdscript.setup {
 vim.diagnostic.config({
     virtual_text = {
         source = "if_many",
-        prefix = "▎",
+        prefix = "▍",
         suffix = " ",
     },
     severity_sort = true,
