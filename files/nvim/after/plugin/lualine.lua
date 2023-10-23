@@ -223,18 +223,20 @@ local config = {
     },
   },
   tabline = {
-      lualine_a = { },
-      lualine_b = {
+      lualine_a = {
           {
               "tabs",
               max_length = vim.o.columns / 1.2,
-              mode = 1,
+              mode = 2,
               padding = {
-                  left = 0,
+                  left = 1,
                   right = 1
               },
+              symbols = {
+                  modified = ''
+              },
               tabs_color = {
-                  active = {fg = colors.fg, bg = colors.surface2 },
+                  active = {},
                   inactive = {fg = colors.surface1, bg = colors.surface0}
               },
               fmt = function (name, context)
@@ -242,12 +244,7 @@ local config = {
                   local winnr = vim.fn.tabpagewinnr(context.tabnr)
                   local bufnr = buflist[winnr]
                   local mod = vim.fn.getbufvar(bufnr, '&mod')
-                  local prefix = " "
-                  if context.tabnr == vim.fn.tabpagenr() then
-                      prefix = "▍"
-                  end
-
-                  return prefix .. string.lpad(name, 12, ' ') .. (mod == 1 and ' ●' or '  ')
+                  return string.lpad(name, 12, ' ') .. (mod == 1 and ' ●' or '  ')
               end
           },
       },
@@ -268,3 +265,6 @@ local config = {
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
+
+vim.opt.showtabline = 1
+vim.opt.laststatus = 2
