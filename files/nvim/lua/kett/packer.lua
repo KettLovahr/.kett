@@ -121,8 +121,6 @@ return require('packer').startup(function(use)
         end,
     }
 
-    use 'Exafunction/codeium.vim'
-
     use {
         'folke/zen-mode.nvim',
         config = function()
