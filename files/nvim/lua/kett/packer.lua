@@ -100,7 +100,16 @@ return require('packer').startup(function(use)
                     date_format = "%Y-%m-%d",
                 },
                 mappings = {
-                    ["gf"] = require("obsidian.mapping").gf_passthrough(),
+                    ["gf"] = {
+                        action = function()
+                            return require("obsidian").util.gf_passthrough()
+                        end,
+                        opts = {
+                            noremap = false,
+                            expr = true,
+                            buffer = true,
+                        }
+                    }
                 },
 
                 templates ={
