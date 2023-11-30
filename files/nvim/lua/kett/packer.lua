@@ -81,7 +81,6 @@ return require('packer').startup(function(use)
     }
 
     use 'RRethy/nvim-align'
-    use 'OmniSharp/Omnisharp-vim'
 
     use {
         "epwalsh/obsidian.nvim",
