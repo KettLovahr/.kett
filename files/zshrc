@@ -159,7 +159,7 @@ export EDITOR=nvim
 export STEAM_COMPAT_DATA_PATH="/home/bluefire/.proton"
 
 function help () {
-	    curl "https://cht.sh/$@" | less --use-color
+	    curl "https://cht.sh/$@"
     }
 
 bindkey "\e[H" beginning-of-line
