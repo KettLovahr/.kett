@@ -29,7 +29,12 @@ return require('packer').startup(function(use)
         requires = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},
-            {'williamboman/mason.nvim'},
+            {
+                'williamboman/mason.nvim',
+                config = function ()
+                    require("mason").setup()
+                end
+            },
             {'williamboman/mason-lspconfig.nvim'},
 
             -- Autocompletion
