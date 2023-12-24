@@ -2,10 +2,17 @@ local lsp = require("lsp-zero")
 
 lsp.preset('recommended')
 
-lsp.ensure_installed = {
+require('mason-lspconfig').setup({
+    ensure_installed = {
     "rust_analyzer",
-    "pylsp"
-}
+    "pylsp",
+    "lua_ls",
+    "zls",
+},
+    handlers = {
+        lsp.default_setup,
+    },
+})
 
 lsp.set_preferences({
     sign_icons = {
