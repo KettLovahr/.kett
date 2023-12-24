@@ -41,21 +41,6 @@ lspconfig.lua_ls.setup{
     }
 }
 
---lspconfig.pylsp.setup{
---    settings = {
---        pylsp = {
---            plugins = {
---                pylint = {
---                    enabled = false
---                },
---                flake8 = {
---                    enabled = true
---                }
---            }
---        }
---    }
---}
-
 lspconfig.gdscript.setup {
     cmd       = {"nc", "localhost", "6005"},
     filetypes = {"gdscript"},
