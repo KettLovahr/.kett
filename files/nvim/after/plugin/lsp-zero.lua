@@ -23,6 +23,10 @@ lsp.set_preferences({
     }
 })
 
+lsp.on_attach(function(client, bufnr)
+  lsp.default_keymaps({buffer = bufnr})
+end)
+
 lsp.setup()
 
 local lspconfig = require('lspconfig')
