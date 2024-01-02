@@ -35,7 +35,3 @@ vim.keymap.set("x", "'", "<Esc>`>a'<Esc>`<i'<Esc>gvll")
 -- TODO: Find a better keymap for double-quotes, since this overrides register selection
 -- vim.keymap.set("x", '"', '<Esc>`>a"<Esc>`<i"<Esc>gvll')
 vim.keymap.set("x", "<", "<Esc>`>a><Esc>`<i<<Esc>gvll")
-
-vim.keymap.set("x", "*", "<Esc>`>a*<Esc>`<i*<Esc>gvll")
-vim.keymap.set("x", "_", "<Esc>`>a_<Esc>`<i_<Esc>gvll")
-vim.keymap.set("x", "`", "<Esc>`>a`<Esc>`<i`<Esc>gvll")
