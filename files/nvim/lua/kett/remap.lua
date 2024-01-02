@@ -34,4 +34,6 @@ vim.keymap.set("x", "{", "<Esc>`>a}<Esc>`<i{<Esc>gvll")
 vim.keymap.set("x", "'", "<Esc>`>a'<Esc>`<i'<Esc>gvll")
 -- TODO: Find a better keymap for double-quotes, since this overrides register selection
 -- vim.keymap.set("x", '"', '<Esc>`>a"<Esc>`<i"<Esc>gvll')
-vim.keymap.set("x", "<", "<Esc>`>a><Esc>`<i<<Esc>gvll")
+-- TODO: Maybe find a better mapping for angle brackets
+-- Have not had much use for this mapping at all, though, and it overrides unindent map
+-- vim.keymap.set("x", "<", "<Esc>`>a><Esc>`<i<<Esc>gvll")
