@@ -6,6 +6,8 @@ The `link.sh` in the root directory will install the dotfiles to their appropria
 
 Do note that it is necessary to [install Packer](https://github.com/wbthomason/packer.nvim#quickstart), and then run :PackerInstall or :PackerSync to install the plugins once the configuration files have been linked.
 
+The Neovim configuration requires Neovim v0.9+, which should be provided by most distros, except Debian, of course.
+
 Tool dependencies:
 - git
 - fzf
