@@ -3,6 +3,7 @@ require("kett.packer")
 require("kett.diagnostic")
 
 vim.opt.termguicolors = true
+vim.opt.cursorline = true
 
 vim.opt.number = true
 

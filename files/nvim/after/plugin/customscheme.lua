@@ -1,4 +1,4 @@
-vim.cmd("colorscheme catppuccin-mocha")
+vim.cmd("colorscheme base16-atelier-cave")
 
 vim.cmd("hi Pmenu      guifg=#999999 guibg=#000000")
 vim.cmd("hi PmenuSel   guifg=#EEEEEE guibg=#212121")

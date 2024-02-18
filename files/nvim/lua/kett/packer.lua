@@ -85,6 +85,8 @@ return require('packer').startup(function(use)
 	end,
     }
 
+    use 'chriskempson/base16-vim'
+
     use 'RRethy/nvim-align'
 
     use {
@@ -95,6 +97,10 @@ return require('packer').startup(function(use)
         },
         config = function()
             require("obsidian").setup({
+
+                ui = {
+                    enable = false,
+                },
 
                 dir = "~/Documents/Writes/Obsidian/Kodex/",
                 disable_frontmatter = true,
