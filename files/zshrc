@@ -99,11 +99,17 @@ fcd ()
     else
         DIR=$PWD
     fi
-    cd "`find $DIR -maxdepth 6 -type d | fzf -x --border=sharp --margin 0 --padding 0 --layout=reverse --no-color --height 36 --color=fg+:green,hl:yellow --preview="tree -L 3 {}" --preview-window="right,50%"`"
-}
-fls ()
-{
-    cd "`ls --color=never -a -d */ .*/ | fzf +s -e -x --border=sharp --margin 2 --padding 0 --layout=reverse --no-color --height 24 --color=fg+:green,hl:yellow`"
+    cd "`find $DIR -maxdepth 6 -type d |
+        fzf -x                         \
+        --border=none                  \
+        --margin 10%                   \
+        --padding 0                    \
+        --layout=reverse               \
+        --no-color                     \
+        --height 8                     \
+        --color=fg+:green,hl:yellow    \
+        --preview="ls {}"              \
+        --preview-window="right,20%"`"
 }
 
 bindkey -s "^K" "fcd ~\n"
@@ -147,7 +153,16 @@ bindkey '^ ' autosuggest-accept
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source ~/.zsh/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
-ZSH_FZF_HISTORY_SEARCH_FZF_ARGS="+s +m -x -e --border=sharp --margin 0 --padding 1 --layout=reverse --no-color --height 16 --color=fg+:green,hl:yellow"
+ZSH_FZF_HISTORY_SEARCH_FZF_ARGS="
+        -x                             \
+        --border=none                  \
+        --margin 10%                   \
+        --padding 0                    \
+        --layout=reverse               \
+        --no-color                     \
+        --height 8                     \
+        --color=fg+:green,hl:yellow    \
+"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 
