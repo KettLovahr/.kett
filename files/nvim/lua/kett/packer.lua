@@ -12,7 +12,14 @@ return require('packer').startup(function(use)
 
     use 'ap/vim-css-color'
 
-    use 'nvim-lualine/lualine.nvim'
+    use {
+        'nvim-lualine/lualine.nvim',
+        config = function ()
+            require("lualine").setup({
+                theme = 'auto',
+            })
+        end
+    }
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.4',
@@ -85,7 +92,7 @@ return require('packer').startup(function(use)
 	end,
     }
 
-    use 'chriskempson/base16-vim'
+    use 'JoshPorterDev/nvim-base16'
 
     use 'RRethy/nvim-align'
 
