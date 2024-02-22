@@ -5,6 +5,8 @@ return require('packer').startup(function(use)
 
     use 'tpope/vim-fugitive'
 
+    use 'tpope/vim-commentary'
+
     use {
         'airblade/vim-gitgutter',
         branch = 'main'
@@ -29,7 +31,13 @@ return require('packer').startup(function(use)
                                 warn = "W",
                                 info = "I",
                                 hint = "H",
-                            }
+                            },
+                            diagnostics_color = {
+                                error = 'DiagnosticError', -- Changes diagnostics' error color.
+                                warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
+                                info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
+                                hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+                            },
                         }
                     },
                     lualine_c = {'filename'},
