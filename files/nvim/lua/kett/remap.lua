@@ -22,18 +22,8 @@ vim.keymap.set("i", "{<CR>", "{<CR>}<C-c>O")
 vim.keymap.set("i", "[<CR>", "[<CR>]<C-c>O")
 vim.keymap.set("i", "(<CR>", "(<CR>)<C-c>O")
 
--- Enclose visual selection
--- I have been using it a lot more often so, might as well make it easier for
--- myself.
---
--- I came up with this I'm sure there's a better approach but it *works* and 
--- I'm proud of it <3
+-- Visual Mode Keymaps
 vim.keymap.set("x", "(", "<Esc>`>a)<Esc>`<i(<Esc>gvll")
 vim.keymap.set("x", "[", "<Esc>`>a]<Esc>`<i[<Esc>gvll")
 vim.keymap.set("x", "{", "<Esc>`>a}<Esc>`<i{<Esc>gvll")
 vim.keymap.set("x", "'", "<Esc>`>a'<Esc>`<i'<Esc>gvll")
--- TODO: Find a better keymap for double-quotes, since this overrides register selection
--- vim.keymap.set("x", '"', '<Esc>`>a"<Esc>`<i"<Esc>gvll')
--- TODO: Maybe find a better mapping for angle brackets
--- Have not had much use for this mapping at all, though, and it overrides unindent map
--- vim.keymap.set("x", "<", "<Esc>`>a><Esc>`<i<<Esc>gvll")
