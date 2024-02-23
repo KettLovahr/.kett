@@ -32,12 +32,6 @@ return require('packer').startup(function(use)
                                 info = "I",
                                 hint = "H",
                             },
-                            diagnostics_color = {
-                                error = 'DiagnosticError', -- Changes diagnostics' error color.
-                                warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
-                                info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
-                                hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
-                            },
                         }
                     },
                     lualine_c = {'filename'},
