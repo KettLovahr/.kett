@@ -9,7 +9,6 @@ require('mason-lspconfig').setup({
     "lua_ls",
     "zls",
     "clangd",
-    "shellcheck",
     "bashls",
     "emmet_ls",
     "cssls",
