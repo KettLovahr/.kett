@@ -166,7 +166,7 @@ ZSH_FZF_HISTORY_SEARCH_FZF_ARGS="
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 
-export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$(echo $PATH):/usr/sbin:/sbin:/usr/local/bin"
+export PATH="$HOME/.local/bin:$PATH:/usr/sbin:/sbin:/usr/local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/Android/Sdk/tools/bin"
 export PATH="$PATH:$HOME/.dotnet/"
