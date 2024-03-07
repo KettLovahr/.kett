@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local lspconfig = require('lspconfig')
 
 lsp.preset('recommended')
 
@@ -29,13 +30,7 @@ lsp.set_preferences({
     }
 })
 
-lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({buffer = bufnr})
-end)
 
-lsp.setup()
-
-local lspconfig = require('lspconfig')
 
 lspconfig.lua_ls.setup{
     settings = {
@@ -47,19 +42,28 @@ lspconfig.lua_ls.setup{
     }
 }
 
+local on_attach = function(client, bufnr)
+    lsp.default_keymaps({buffer = bufnr})
+
+    vim.diagnostic.config({
+        virtual_text = {
+            source = "if_many",
+            prefix = "▍",
+            suffix = " ",
+        },
+        severity_sort = true,
+        update_in_insert = true
+    })
+end
+
+lsp.on_attach(on_attach)
+
 lspconfig.gdscript.setup {
     cmd       = {"nc", "localhost", "6005"},
     filetypes = {"gdscript"},
     root_dir  = lspconfig.util.root_pattern("project.godot", ".git"),
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    on_attach = on_attach,
 }
 
-vim.diagnostic.config({
-    virtual_text = {
-        source = "if_many",
-        prefix = "▍",
-        suffix = " ",
-    },
-    severity_sort = true,
-    update_in_insert = true
-})
+lsp.setup()
