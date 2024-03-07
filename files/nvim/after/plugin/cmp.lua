@@ -7,5 +7,6 @@ cmp.setup({
         ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
         ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
         ['<Esc>'] = cmp.mapping.close(),
+        ['<C-c>'] = cmp.mapping.close(),
     }),
 })
