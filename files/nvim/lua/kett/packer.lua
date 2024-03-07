@@ -14,7 +14,17 @@ return require('packer').startup(function(use)
         branch = 'main'
     }
 
-    use 'ap/vim-css-color'
+    use {
+        'norcalli/nvim-colorizer.lua',
+        config = function ()
+            require("colorizer").setup({
+                'css',
+                'javascript',
+                'html',
+                'svelte',
+            })
+        end
+    }
 
     use {
         'nvim-lualine/lualine.nvim',
