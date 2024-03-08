@@ -25,7 +25,17 @@ vim.opt.updatetime = 100
 
 vim.opt.fillchars= "eob: ,"
 
-vim.opt.guifont = "Iosevka Extended:h12"
+if vim.g.neovide then
+    vim.opt.guifont = "Iosevka Extended:h12"
+
+    local toggle_fullscreen =  function()
+        vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
+    end
+
+    vim.keymap.set({'n', 'i', 'v'}, "<F11>", toggle_fullscreen)
+    vim.keymap.set({'n', 'i', 'v'}, "<C-Tab>", vim.cmd.tabnext)
+    vim.keymap.set({'n', 'i', 'v'}, "<C-S-Tab>", vim.cmd.tabprev)
+end
 
 vim.api.nvim_create_autocmd(
     {"BufEnter"}, {
