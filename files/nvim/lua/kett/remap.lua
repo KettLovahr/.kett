@@ -27,3 +27,7 @@ vim.keymap.set("x", "(", "<Esc>`>a)<Esc>`<i(<Esc>gvll")
 vim.keymap.set("x", "[", "<Esc>`>a]<Esc>`<i[<Esc>gvll")
 vim.keymap.set("x", "{", "<Esc>`>a}<Esc>`<i{<Esc>gvll")
 vim.keymap.set("x", "'", "<Esc>`>a'<Esc>`<i'<Esc>gvll")
+
+-- The default mapping for exiting Terminal mode kind of sucks
+-- Setting it to be Control-Backslash twice
+vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>")
