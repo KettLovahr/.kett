@@ -32,6 +32,8 @@ if vim.g.neovide then
         vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
     end
 
+    vim.g.neovide_hide_mouse_when_typing = true
+
     vim.keymap.set({'n', 'i', 'v'}, "<F11>", toggle_fullscreen)
     vim.keymap.set({'n', 'i', 'v'}, "<C-Tab>", vim.cmd.tabnext)
     vim.keymap.set({'n', 'i', 'v'}, "<C-S-Tab>", vim.cmd.tabprev)
