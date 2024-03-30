@@ -6,6 +6,7 @@ lsp.preset('recommended')
 require('mason-lspconfig').setup({
     ensure_installed = {
     "rust_analyzer",
+    "tsserver",
     "pylsp",
     "lua_ls",
     "zls",
