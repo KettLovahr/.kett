@@ -219,4 +219,5 @@ bindkey '^X^e' edit-command-line
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$PATH:$HOME/go/bin"
 export DOTNET_ROOT="$HOME/.dotnet/"
