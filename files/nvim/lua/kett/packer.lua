@@ -159,6 +159,7 @@ return require('packer').startup(function(use)
 
             })
         end,
+        cond = false,
     }
 
     use {
