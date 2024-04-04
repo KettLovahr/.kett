@@ -16,6 +16,11 @@ vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv") -- Move selected lines up
 
 vim.keymap.set("x", "<Leader>c", '"+y') -- Copy selected text to system clipboard
 
+-- Insert Mode Keymaps
+vim.keymap.set("i", "{<CR>", "{<CR>}<C-c>O")
+vim.keymap.set("i", "[<CR>", "[<CR>]<C-c>O")
+vim.keymap.set("i", "(<CR>", "(<CR>)<C-c>O")
+
 -- The default mapping for exiting Terminal mode kind of sucks
 -- Setting it to be Control-Backslash twice
 vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>")
