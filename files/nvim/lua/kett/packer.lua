@@ -119,8 +119,12 @@ return require('packer').startup(function(use)
         config = function()
             require("zen-mode").setup({
                 window = {
-                    width = 85,
+                    width = 80,
                     backdrop = 0.8,
+                    options = {
+                        number = false,
+                        signcolumn = "no",
+                    }
                 },
             })
         end,
