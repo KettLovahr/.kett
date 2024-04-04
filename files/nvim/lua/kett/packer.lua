@@ -115,58 +115,6 @@ return require('packer').startup(function(use)
     use 'RRethy/nvim-align'
 
     use {
-        "epwalsh/obsidian.nvim",
-        requires = {
-            -- Required.
-            "nvim-lua/plenary.nvim",
-        },
-        config = function()
-            require("obsidian").setup({
-
-                ui = {
-                    enable = false,
-                },
-
-                dir = "~/Documents/Writes/Obsidian/Kodex/",
-                disable_frontmatter = true,
-
-                daily_notes = {
-                    folder = "Daily Notes",
-                    date_format = "%Y-%m-%d",
-                },
-                mappings = {
-                    ["gf"] = {
-                        action = function()
-                            return require("obsidian").util.gf_passthrough()
-                        end,
-                        opts = {
-                            noremap = false,
-                            expr = true,
-                            buffer = true,
-                        }
-                    }
-                },
-
-                templates ={
-                    subdir = "Templates",
-                    date_format = "%Y-%m-%d",
-                    time_format = "%H:%M:%S",
-                },
-
-                note_id_func = function (title)
-                    if title == nil
-                        then
-                            return tostring(os.time())
-                        end
-                    return title
-                end,
-
-            })
-        end,
-        cond = false,
-    }
-
-    use {
         'folke/zen-mode.nvim',
         config = function()
             require("zen-mode").setup({
