@@ -21,6 +21,7 @@ vim.keymap.set("i", "{<CR>", "{<CR>}<C-c>O")
 vim.keymap.set("i", "[<CR>", "[<CR>]<C-c>O")
 vim.keymap.set("i", "(<CR>", "(<CR>)<C-c>O")
 
+-- Create empty line between enclosing braces when pressing <CR>
 vim.keymap.set("i", "<CR>", function ()
     vim.cmd.echo('"Meow"')
     local line = vim.fn.getline('.')
