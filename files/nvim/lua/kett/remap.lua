@@ -21,6 +21,20 @@ vim.keymap.set("i", "{<CR>", "{<CR>}<C-c>O")
 vim.keymap.set("i", "[<CR>", "[<CR>]<C-c>O")
 vim.keymap.set("i", "(<CR>", "(<CR>)<C-c>O")
 
+vim.keymap.set("i", "<CR>", function ()
+    vim.cmd.echo('"Meow"')
+    local line = vim.fn.getline('.')
+    local col = vim.fn.col('.')
+    local cur= line:sub(col - 1, col)
+    if cur == "{}" or cur == "[]" or cur == "()" then
+        return "<CR><C-c>O"
+    end
+    return "<CR>"
+end, {
+    noremap = true,
+    expr = true,
+})
+
 -- The default mapping for exiting Terminal mode kind of sucks
 -- Setting it to be Control-Backslash twice
 vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>")
