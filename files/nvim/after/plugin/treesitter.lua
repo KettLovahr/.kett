@@ -6,7 +6,7 @@ require'nvim-treesitter.configs'.setup {
 
   auto_install = true,
 
-  ignore_install = { "zig" }, -- Zig parser makes Neovim hang entirely.
+  ignore_install = { }, -- Zig parser makes Neovim hang entirely.
 
   highlight = {
     enable = true,
@@ -26,4 +26,8 @@ require'nvim-treesitter.configs'.setup {
           "#C6A0F6",
       }
   }
+}
+
+vim.g.rainbow_delimiters = {
+    blacklist = { "zig" },
 }
