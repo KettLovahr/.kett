@@ -23,7 +23,6 @@ vim.keymap.set("i", "(<CR>", "(<CR>)<C-c>O")
 
 -- Create empty line between enclosing braces when pressing <CR>
 vim.keymap.set("i", "<CR>", function ()
-    vim.cmd.echo('"Meow"')
     local line = vim.fn.getline('.')
     local col = vim.fn.col('.')
     local cur= line:sub(col - 1, col)
@@ -31,10 +30,25 @@ vim.keymap.set("i", "<CR>", function ()
         return "<CR><C-c>O"
     end
     return "<CR>"
-end, {
-    noremap = true,
-    expr = true,
-})
+end, { noremap = true, expr = true, })
+
+-- On closing brackets, move to the right if current character
+-- is already that bracket
+-- TODO: Remove later if too distracting
+local c_brackets = { ')', ']', '}' }
+
+for i = 1, #c_brackets do
+    local b = c_brackets[i]
+    vim.keymap.set("i", b, function ()
+        local line = vim.fn.getline('.')
+        local col = vim.fn.col('.')
+        local cur= line:sub(col, col)
+        if cur == b then
+            return "<Right>"
+        end
+        return b
+    end, { noremap = true, expr = true, })
+end
 
 -- The default mapping for exiting Terminal mode kind of sucks
 -- Setting it to be Control-Backslash twice
