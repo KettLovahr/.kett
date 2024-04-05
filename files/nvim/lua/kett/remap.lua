@@ -14,7 +14,7 @@ vim.keymap.set("n", "<Leader>cc", '"+yy') -- Copy current line to system clipboa
 vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv") -- Move selected lines down
 vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv") -- Move selected lines up
 
-vim.keymap.set("x", "<Leader>c", '"+y') -- Copy selected text to system clipboard
+vim.keymap.set("x", "<Leader>c", '"+y')      -- Copy selected text to system clipboard
 
 -- Insert Mode Keymaps
 vim.keymap.set("i", "{<CR>", "{<CR>}<C-c>O")
@@ -22,10 +22,10 @@ vim.keymap.set("i", "[<CR>", "[<CR>]<C-c>O")
 vim.keymap.set("i", "(<CR>", "(<CR>)<C-c>O")
 
 -- Create empty line between enclosing braces when pressing <CR>
-vim.keymap.set("i", "<CR>", function ()
+vim.keymap.set("i", "<CR>", function()
     local line = vim.fn.getline('.')
     local col = vim.fn.col('.')
-    local cur= line:sub(col - 1, col)
+    local cur = line:sub(col - 1, col)
     if cur == "{}" or cur == "[]" or cur == "()" then
         return "<CR><C-c>O"
     end
@@ -39,10 +39,10 @@ local c_brackets = { ')', ']', '}' }
 
 for i = 1, #c_brackets do
     local b = c_brackets[i]
-    vim.keymap.set("i", b, function ()
+    vim.keymap.set("i", b, function()
         local line = vim.fn.getline('.')
         local col = vim.fn.col('.')
-        local cur= line:sub(col, col)
+        local cur = line:sub(col, col)
         if cur == b then
             return "<Right>"
         end
