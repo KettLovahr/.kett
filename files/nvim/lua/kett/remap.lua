@@ -16,11 +16,6 @@ vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv") -- Move selected lines up
 
 vim.keymap.set("x", "<Leader>c", '"+y')      -- Copy selected text to system clipboard
 
--- Insert Mode Keymaps
-vim.keymap.set("i", "{<CR>", "{<CR>}<C-c>O")
-vim.keymap.set("i", "[<CR>", "[<CR>]<C-c>O")
-vim.keymap.set("i", "(<CR>", "(<CR>)<C-c>O")
-
 -- Create empty line between enclosing braces when pressing <CR>
 vim.keymap.set("i", "<CR>", function()
     local line = vim.fn.getline('.')
