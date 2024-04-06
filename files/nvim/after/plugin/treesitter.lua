@@ -30,4 +30,16 @@ require'nvim-treesitter.configs'.setup {
 
 vim.g.rainbow_delimiters = {
     blacklist = { "zig" },
+    query = {
+        lua = "rainbow-blocks",
+    },
+    highlight = {
+        'RainbowDelimiterRed',
+        'RainbowDelimiterOrange',
+        'RainbowDelimiterYellow',
+        'RainbowDelimiterGreen',
+        'RainbowDelimiterCyan',
+        'RainbowDelimiterBlue',
+        'RainbowDelimiterViolet',
+    }
 }
