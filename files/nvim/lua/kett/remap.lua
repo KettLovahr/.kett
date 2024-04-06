@@ -32,6 +32,33 @@ vim.keymap.set("i", "<CR>", function()
     return "<CR>"
 end, { noremap = true, expr = true, })
 
+local o_brackets = { '(', '[', '{' }
+local c_brackets = { ')', ']', '}' }
+
+for i = 1, #o_brackets do
+    local b = o_brackets[i]
+    vim.keymap.set("i", b, function()
+        return o_brackets[i] .. c_brackets[i] .. "<Left>"
+    end, { noremap = true, expr = true, })
+end
+
+-- On closing brackets, move to the right if current character
+-- is already that bracket
+-- TODO: Remove later if too distracting
+
+for i = 1, #c_brackets do
+    local b = c_brackets[i]
+    vim.keymap.set("i", b, function()
+        local line = vim.fn.getline('.')
+        local col = vim.fn.col('.')
+        local cur = line:sub(col, col)
+        if cur == b then
+            return "<Right>"
+        end
+        return b
+    end, { noremap = true, expr = true, })
+end
+
 -- The default mapping for exiting Terminal mode kind of sucks
 -- Setting it to be Control-Backslash twice
 vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>")
