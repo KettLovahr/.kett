@@ -52,7 +52,21 @@ for i = 1, #c_brackets do
         end
         return b
     end, { noremap = true, expr = true, })
+
+
 end
+
+vim.keymap.set("i", "<BS>", function()
+    local line = vim.fn.getline('.')
+    local col = vim.fn.col('.')
+    local cur = line:sub(col - 1, col)
+    for i = 1, #c_brackets do
+        if cur == o_brackets[i] .. c_brackets[i] then
+            return "<Right><BS><BS>"
+        end
+    end
+    return "<BS>"
+end, { noremap = true, expr = true, })
 
 -- The default mapping for exiting Terminal mode kind of sucks
 -- Setting it to be Control-Backslash twice
