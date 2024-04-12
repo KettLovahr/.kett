@@ -12,7 +12,3 @@ require("ibl").setup({
     indent = {highlight = highlight},
     scope = {show_start = false}
 })
-
-if "meow" then
-    print("Hello, world")
-end
