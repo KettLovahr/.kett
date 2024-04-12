@@ -9,6 +9,10 @@ local highlight = {
 }
 
 require("ibl").setup({
-    indent = {highlight = highlight},
-    scope = {show_start = false}
+    indent = {
+        highlight = highlight,
+    },
+    scope = {
+        show_start = false,
+    },
 })
