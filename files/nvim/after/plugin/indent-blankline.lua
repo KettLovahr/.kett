@@ -11,10 +11,13 @@ local highlight = {
 require("ibl").setup({
     indent = {
         highlight = "IblIndent",
+        char = '▏',
+        -- char = '▎',
     },
     scope = {
         highlight = highlight,
         show_start = false,
+        show_end = false,
     },
 })
 
