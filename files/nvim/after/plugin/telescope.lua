@@ -4,4 +4,7 @@ vim.keymap.set("n", '<Leader>ff', builtin.find_files)
 vim.keymap.set("n", '<Leader>bf', builtin.buffers)
 vim.keymap.set("n", '<C-p>', builtin.git_files)
 vim.keymap.set("n", '<Leader>gg', builtin.live_grep)
+vim.keymap.set("n", '<Leader>gc', builtin.git_commits)
 vim.keymap.set("n", '<Leader>ss', builtin.lsp_dynamic_workspace_symbols)
+
+vim.keymap.set("n", '<Leader>qq', builtin.resume)
