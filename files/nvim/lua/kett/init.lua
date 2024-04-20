@@ -77,3 +77,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts.max_height= opts.max_height or 24
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart = 99

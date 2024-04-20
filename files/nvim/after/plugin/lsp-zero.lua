@@ -16,6 +16,7 @@ require('mason-lspconfig').setup({
     "cssls",
     "svelte",
     "omnisharp",
+    "fsautocomplete",
 },
     handlers = {
         lsp.default_setup,

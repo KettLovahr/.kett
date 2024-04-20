@@ -18,6 +18,8 @@ return require('packer').startup(function(use)
         branch = 'main'
     }
 
+    use 'jrudess/vim-foldtext'
+
     use {
         "catppuccin/nvim",
         config = function()
@@ -45,6 +47,11 @@ return require('packer').startup(function(use)
             types = {},
             operators = {},
         },
+        custom_highlights = function (colors)
+            return {
+                Folded = { fg = colors.surface2, bg = colors.none }
+            }
+        end
 		})
 	end,
     }
