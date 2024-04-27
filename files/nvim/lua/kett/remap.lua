@@ -69,7 +69,7 @@ vim.keymap.set("i", "<BS>", function()
 end, { noremap = true, expr = true, })
 
 -- Do math
-vim.keymap.set("x", "<Leader>m", "\"md\"=<C-r>m<CR>p")
+vim.keymap.set("x", "<Leader>m", "\"md\"=<C-r>m<CR>P")
 
 -- The default mapping for exiting Terminal mode kind of sucks
 -- Setting it to be Control-Backslash twice
