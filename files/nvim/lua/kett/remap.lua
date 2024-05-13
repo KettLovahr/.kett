@@ -74,3 +74,10 @@ vim.keymap.set("x", "<Leader>m", "\"md\"=<C-r>m<CR>P")
 -- The default mapping for exiting Terminal mode kind of sucks
 -- Setting it to be Control-Backslash twice
 vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>")
+
+vim.keymap.set("n", "<Leader>'", function ()
+    vim.cmd.new()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 12)
+    vim.cmd.term()
+end)
