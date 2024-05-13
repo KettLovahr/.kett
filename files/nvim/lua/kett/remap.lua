@@ -76,8 +76,13 @@ vim.keymap.set("x", "<Leader>m", "\"md\"=<C-r>m<CR>P")
 vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>")
 
 vim.keymap.set("n", "<Leader>'", function ()
-    vim.cmd.new()
-    vim.cmd.wincmd("J")
-    vim.api.nvim_win_set_height(0, 12)
-    vim.cmd.term()
+    if vim.fn.exists("b:custom_term") == 0 then
+        vim.cmd.new()
+        vim.cmd.wincmd("J")
+        vim.api.nvim_win_set_height(0, 12)
+        vim.cmd.term()
+        vim.b.custom_term = true
+    else
+        vim.cmd.wincmd("q")
+    end
 end)
