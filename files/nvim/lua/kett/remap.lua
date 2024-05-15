@@ -82,6 +82,7 @@ vim.keymap.set("n", "<Leader>'", function ()
         vim.api.nvim_win_set_height(0, 12)
         vim.cmd.term()
         vim.b.custom_term = true
+        vim.o.winfixheight = true
     else
         vim.cmd.wincmd("q")
     end
