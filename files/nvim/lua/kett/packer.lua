@@ -144,6 +144,9 @@ return require('packer').startup(function(use)
         }
     }
 
+    use 'mfussenegger/nvim-dap'
+    use 'jay-babu/mason-nvim-dap.nvim'
+
     use 'HiPhish/rainbow-delimiters.nvim'
     use 'mbbill/undotree'
     use 'simrat39/symbols-outline.nvim'
@@ -174,6 +177,8 @@ return require('packer').startup(function(use)
             require("oil").setup()
         end
     }
+
+    use 'Hoffs/omnisharp-extended-lsp.nvim' -- Workaround for Go to definition for C#
 
 end)
 
