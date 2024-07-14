@@ -92,6 +92,8 @@ alias "pre"="sudo pacman -Rns"
 
 alias "please"="sudo $history[1]"
 
+alias "open"="xdg-open "
+
 fcd ()
 {
     if [[ "$1" != "" ]]; then
