@@ -223,4 +223,8 @@ bindkey '^X^e' edit-command-line
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/.cosmocc/bin"
 export DOTNET_ROOT="$HOME/.dotnet/"
+
+# shut up
+export WINEDEBUG='-all'
