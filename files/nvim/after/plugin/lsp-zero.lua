@@ -17,6 +17,7 @@ require('mason-lspconfig').setup({
     "svelte",
     "omnisharp",
     "fsautocomplete",
+    "jdtls",
 },
     handlers = {
         lsp.default_setup,
@@ -79,6 +80,10 @@ lspconfig.gdscript.setup {
 }
 
 lspconfig.fsautocomplete.setup {
+    single_file_support = true,
+}
+
+lspconfig.rust_analyzer.setup {
     single_file_support = true,
 }
 
