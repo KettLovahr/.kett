@@ -144,15 +144,6 @@ return require('packer').startup(function(use)
         }
     }
 
-    use 'mfussenegger/nvim-dap'
-    use 'jay-babu/mason-nvim-dap.nvim'
-    use {
-        'rcarriga/nvim-dap-ui',
-        requires = {
-            'nvim-neotest/nvim-nio'
-        }
-    }
-
     use 'HiPhish/rainbow-delimiters.nvim'
     use 'mbbill/undotree'
     use 'simrat39/symbols-outline.nvim'
