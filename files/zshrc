@@ -219,11 +219,11 @@ bindkey '^X^e' edit-command-line
 # bun completions
 [ -s "/home/kett/.bun/_bun" ] && source "/home/kett/.bun/_bun"
 
-# bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.cosmocc/bin"
+export PATH="$PATH:$HOME/.freebasic/bin"
 export DOTNET_ROOT="$HOME/.dotnet/"
 
 # shut up
