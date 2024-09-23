@@ -46,6 +46,21 @@ if vim.g.neovide then
         vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * 1/1.25
         print(tostring(vim.g.neovide_scale_factor))
     end)
+
+    vim.api.nvim_create_user_command("KettNormal", function()
+        vim.opt.guifont = "Iosevka Extended:h12"
+        vim.cmd.colorscheme("catppuccin-mocha")
+        vim.opt.laststatus = 2
+    end, {
+        desc = "Change the font and theme inside of Neovide to my usual schtick",
+    })
+    vim.api.nvim_create_user_command("KettRetro", function()
+        vim.opt.guifont = "Mx437 IBM VGA 9x8:h18:#e-alias"
+        vim.cmd.colorscheme("zaibatsu")
+        vim.opt.laststatus = 0
+    end, {
+        desc = "Change the font and theme inside of Neovide so I can go So Retro",
+    })
 end
 
 vim.api.nvim_create_autocmd(
