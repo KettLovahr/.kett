@@ -110,6 +110,15 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.4',
+        config = function ()
+            require("telescope").setup{
+                defaults = {
+                    borderchars = {
+                        "─", "│", "─", "│", "┌", "┐", "┘", "└"
+                    }
+                }
+            }
+        end,
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 

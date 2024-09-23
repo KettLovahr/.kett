@@ -55,7 +55,7 @@ if vim.g.neovide then
         desc = "Change the font and theme inside of Neovide to my usual schtick",
     })
     vim.api.nvim_create_user_command("KettRetro", function()
-        vim.opt.guifont = "Mx437 IBM VGA 9x8:h18:#e-alias"
+        vim.opt.guifont = "MxPlus Amstrad PC:h18:#e-alias"
         vim.cmd.colorscheme("zaibatsu")
         vim.opt.laststatus = 0
     end, {
