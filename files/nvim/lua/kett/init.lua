@@ -26,7 +26,7 @@ vim.opt.updatetime = 100
 vim.opt.fillchars= "eob: ,"
 
 if vim.g.neovide then
-    vim.opt.guifont = "Iosevka Extended:h12"
+    vim.opt.guifont = "Iosevka Extended:h14"
 
     local toggle_fullscreen =  function()
         vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
@@ -48,7 +48,7 @@ if vim.g.neovide then
     end)
 
     vim.api.nvim_create_user_command("KettNormal", function()
-        vim.opt.guifont = "Iosevka Extended:h12"
+        vim.opt.guifont = "Iosevka Extended:h14"
         vim.cmd.colorscheme("catppuccin-mocha")
         vim.opt.laststatus = 2
     end, {
