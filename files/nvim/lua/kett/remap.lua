@@ -3,8 +3,8 @@ vim.g.mapleader = " "
 -- Normal Mode Keymaps
 vim.keymap.set("n", "<Leader>xx", vim.cmd.Ex)
 vim.keymap.set("n", "<Leader>xs", vim.cmd.Sex)
-vim.keymap.set("n", "<C-l>", vim.cmd.tabnext)
-vim.keymap.set("n", "<C-h>", vim.cmd.tabprev)
+vim.keymap.set("n", "<M-Left>", vim.cmd.tabprev)
+vim.keymap.set("n", "<M-Right>", vim.cmd.tabnext)
 vim.keymap.set("n", "<Leader>qf", vim.cmd.copen)
 
 vim.keymap.set("n", "<Leader>cd", ":cd %:p:h<CR>:pwd<CR>")
@@ -87,3 +87,22 @@ vim.keymap.set("n", "<Leader>'", function ()
         vim.cmd.wincmd("q")
     end
 end)
+
+-- Place the word under the cursor on the search register without moving the cursor
+vim.keymap.set("n", "<C-,>", function ()
+    vim.fn.setreg("/", vim.fn.expand('<cword>'))
+    vim.opt.hlsearch = true -- The search highlight always appears when this option is set
+end)
+
+-- Place the word under the cursor on the / register and start a replace operation
+-- that may be repeated on future matches with `.`
+vim.keymap.set("n", "<C-.>", function ()
+    if vim.fn.getreg("/") == vim.fn.expand('<cword>') then
+        return "cgn"
+    else
+        vim.fn.setreg("/", vim.fn.expand('<cword>'))
+        vim.opt.hlsearch = true -- The search highlight always appears when this option is set
+    end
+end, {
+    expr = true,
+})
