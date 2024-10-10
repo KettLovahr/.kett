@@ -23,3 +23,8 @@ require("ibl").setup({
 
 local hooks = require("ibl.hooks")
 hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+
+-- It does not look good or work well in vscode-nvim, disable it
+if vim.g.vscode then
+    vim.cmd("IBLDisable")
+end
