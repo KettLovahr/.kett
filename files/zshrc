@@ -175,7 +175,7 @@ export PATH="$PATH:$HOME/.dotnet/"
 export PATH="$PATH:$HOME/.local/share/bob/nvim-bin/"
 export PATH="$PATH:$HOME/.zig/"
 
-export EDITOR=nvim
+export EDITOR=$(which nvim)
 export STEAM_COMPAT_DATA_PATH="/home/bluefire/.proton"
 
 function help () {
