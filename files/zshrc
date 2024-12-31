@@ -116,7 +116,6 @@ fcd ()
 
 bindkey -s "^K" "fcd ~\n"
 
-export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
 export NVR_CMD=nvim-qt
 
 # Use emacs keybindings even if our EDITOR is set to vi
@@ -224,3 +223,6 @@ export DOTNET_ROOT="$HOME/.dotnet/"
 
 # shut up
 export WINEDEBUG='-all'
+
+# format time nicely
+export TIMEFMT='Time: %mE (%uE)'
