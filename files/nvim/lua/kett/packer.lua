@@ -18,8 +18,6 @@ return require('packer').startup(function(use)
         branch = 'main'
     }
 
-    use 'jrudess/vim-foldtext'
-
     use {
         "catppuccin/nvim",
         config = function()
@@ -155,7 +153,6 @@ return require('packer').startup(function(use)
 
     use 'HiPhish/rainbow-delimiters.nvim'
     use 'mbbill/undotree'
-    use 'simrat39/symbols-outline.nvim'
 
     use 'RRethy/nvim-align'
 

@@ -79,6 +79,10 @@ lspconfig.gdscript.setup {
     on_attach = on_attach,
 }
 
+lspconfig.omnisharp.setup {
+    single_file_support = true,
+}
+
 lspconfig.fsautocomplete.setup {
     single_file_support = true,
 }

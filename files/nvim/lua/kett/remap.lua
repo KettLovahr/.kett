@@ -104,6 +104,7 @@ vim.keymap.set("n", "<C-.>", function ()
     else
         vim.fn.setreg("/", search)
         vim.opt.hlsearch = true -- The search highlight always appears when this option is set
+        return "mm"
     end
 end, {
     expr = true,
