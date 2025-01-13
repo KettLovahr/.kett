@@ -226,3 +226,12 @@ export WINEDEBUG='-all'
 
 # format time nicely
 export TIMEFMT='Time: %mE (%uE)'
+
+
+# PS3 Homebrew Dev
+export PS3DEV="$HOME/.ps3dev"
+export PSL1GHT="$PS3DEV"
+
+export PATH="$PATH:$PS3DEV/bin"
+export PATH="$PATH:$PS3DEV/ppu/bin"
+export PATH="$PATH:$PS3DEV/spu/bin"
