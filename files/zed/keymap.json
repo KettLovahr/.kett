@@ -9,8 +9,8 @@
   {
     "context": "Workspace",
     "bindings": {
+      "f6": "workspace::ToggleLeftDock",
       "f4": "workspace::ToggleBottomDock",
-      // "shift shift": "file_finder::Toggle"
       "f5": "task::Spawn"
     }
   },
