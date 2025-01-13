@@ -23,3 +23,5 @@ create_config_link "$PWD/files/nvim"       "$HOME/.config/nvim" "Neovim"
 
 create_config_link "$PWD/files/zshrc"      "$HOME/.zshrc"       "ZShell Config"
 create_config_link "$PWD/files/zsh"        "$HOME/.zsh"         "ZShell Directory"
+
+create_config_link "$PWD/files/zed"        "$HOME/.config/zed"  "Zed"
