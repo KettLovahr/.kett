@@ -1,0 +1,27 @@
+// Static tasks configuration.
+[
+  {
+    "label": "Zig run",
+    "command": "zig run $ZED_FILE"
+  },
+  {
+    "label": "Zig run C",
+    "command": "zig run $ZED_FILE -lc"
+  },
+  {
+    "label": "Zig run C++",
+    "command": "zig run $ZED_FILE -lc++"
+  },
+  {
+    "label": "FreeBASIC Compile and Run",
+    "command": "fbc -x .test.out $ZED_FILE && ./.test.out"
+  },
+  {
+    "label": "Dotnet run script",
+    "command": "dotnet script $ZED_FILE"
+  },
+  {
+    "label": "Dotnet run",
+    "command": "dotnet run"
+  }
+]
