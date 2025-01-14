@@ -51,18 +51,23 @@
     "java": true,
     "lua": true,
     "toml": true,
-    "zig": true
+    "zig": true,
+    "svelte": true
   },
   "experimental.theme_overrides": {
     "warning.background": "#232634",
     "error.background": "#232634",
     "hint.background": "#232634",
     "background": "#1e1e2ee7",
-    "title_bar.background": "#1e1e2ef7",
+    "title_bar.background": "#1e1e2eff",
+    "status_bar.background": "#1e1e2eff",
+    "tab_bar.background": "#1e1e2eff",
     "surface.background": "#00000000",
     "tab.active_background": "#313244",
     "ghost_element.hover": "#3132447f",
-    "ghost_element.selected": "#313244"
+    "ghost_element.selected": "#313244",
+    "editor.active_line.background": "#313244",
+    "terminal.background": "#181926d9"
   },
   "chat_panel": {
     "button": false
