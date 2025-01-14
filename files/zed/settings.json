@@ -46,13 +46,15 @@
     "catppuccin": true,
     "catppuccin-blur": true,
     "csharp": true,
+    "emmet": true,
     "gdscript": true,
     "git-firefly": true,
+    "html": true,
     "java": true,
     "lua": true,
+    "svelte": true,
     "toml": true,
-    "zig": true,
-    "svelte": true
+    "zig": true
   },
   "experimental.theme_overrides": {
     "warning.background": "#232634",
