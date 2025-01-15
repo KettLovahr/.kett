@@ -15,9 +15,9 @@
     }
   },
   {
-    "context": "Editor",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "g r": "editor::FindAllReferences"
     }
   }
 ]
