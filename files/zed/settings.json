@@ -15,7 +15,8 @@
   "assistant": {
     "version": "2",
     "enabled": false,
-    "button": false
+    "button": false,
+    "dock": null
   },
   "git": {
     "git_gutter": "tracked_files",

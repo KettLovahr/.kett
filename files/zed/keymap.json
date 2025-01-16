@@ -19,5 +19,11 @@
     "bindings": {
       "g r": "editor::FindAllReferences"
     }
+  },
+  {
+    "context": "Editor && renaming",
+    "bindings": {
+      "ctrl-w": ["workspace::SendKeystrokes", "ctrl-backspace"]
+    }
   }
 ]
