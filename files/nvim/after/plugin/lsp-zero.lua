@@ -1,7 +1,7 @@
 local lsp = require("lsp-zero")
 local lspconfig = require('lspconfig')
 
-lsp.preset('recommended')
+-- lsp.preset('recommended') -- Doesn't exist anymore
 
 require('mason-lspconfig').setup({
     ensure_installed = {
@@ -34,8 +34,8 @@ require('mason-lspconfig').setup({
     },
 })
 
-lsp.set_preferences({
-    sign_icons = {
+lsp.ui({
+    sign_text = {
         error = "E",
         warn = "W",
         info = "I",
