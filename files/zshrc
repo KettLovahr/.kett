@@ -69,29 +69,6 @@ alias "tmux"="TERM=xterm-256color tmux"
 alias "vim"="nvim"
 alias "sudo"="sudo "
 
-# mmmm zypper
-alias "zyp"="zypper"
-alias "zup"="sudo zypper dup"
-alias "zin"="sudo zypper in"
-alias "zse"="zypper se"
-alias "zrm"="sudo zypper rm --clean-deps"
-
-# now, how about apt
-alias "apin"="sudo apt install"
-alias "apse"="apt search"
-alias "apli"="apt list"
-alias "apre"="sudo apt remove"
-alias "apup"="sudo apt update"
-alias "aupg"="sudo apt update && sudo apt full-upgrade"
-
-# pacman wakkawakka
-alias "pin"="sudo pacman -S"
-alias "pup"="sudo pacman -Syu"
-alias "pse"="pacman -Ss"
-alias "pre"="sudo pacman -Rns"
-
-alias "please"="sudo $history[1]"
-
 alias "open"="xdg-open "
 
 fcd ()
@@ -228,10 +205,4 @@ export WINEDEBUG='-all'
 export TIMEFMT='Time: %mE (%uE)'
 
 
-# PS3 Homebrew Dev
-export PS3DEV="$HOME/.ps3dev"
-export PSL1GHT="$PS3DEV"
-
-export PATH="$PATH:$PS3DEV/bin"
-export PATH="$PATH:$PS3DEV/ppu/bin"
-export PATH="$PATH:$PS3DEV/spu/bin"
+export HSA_OVERRIDE_GFX_VERSION="10.3.0"
