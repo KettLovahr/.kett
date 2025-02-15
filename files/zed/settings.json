@@ -14,9 +14,13 @@
   },
   "assistant": {
     "version": "2",
-    "enabled": false,
+    "enabled": true,
     "button": false,
-    "dock": null
+    "dock": null,
+    "default_model": {
+      "provider": "ollama",
+      "model": "deepseek-r1:8b"
+    }
   },
   "git": {
     "git_gutter": "tracked_files",
@@ -34,7 +38,7 @@
     "light": "One Light",
     "dark": "Catppuccin Mocha (Blur)"
   },
-  "buffer_font_family": "Iosevka",
+  "buffer_font_family": "Liberation Mono",
   "buffer_font_weight": 400,
   "ui_font_family": "Noto Sans",
   "inlay_hints": {
