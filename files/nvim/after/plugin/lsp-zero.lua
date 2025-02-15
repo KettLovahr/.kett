@@ -1,45 +1,14 @@
 local lsp = require("lsp-zero")
 local lspconfig = require('lspconfig')
 
--- lsp.preset('recommended') -- Doesn't exist anymore
-
-require('mason-lspconfig').setup({
-    ensure_installed = {
-    "rust_analyzer",
-    "ts_ls",
-    "pylsp",
-    "lua_ls",
-    "zls",
-    "clangd",
-    "bashls",
-    "emmet_ls",
-    "cssls",
-    "svelte",
-    "omnisharp",
-    "fsautocomplete",
-    "jdtls",
-},
-    handlers = {
-        lsp.default_setup,
-        omnisharp = function ()
-            lspconfig.omnisharp.setup({
-                  handlers = {
-                      ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
-                      ["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
-                      ["textDocument/references"] = require('omnisharp_extended').references_handler,
-                      ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
-                  },
-            })
-        end
-    },
-})
-
-lsp.ui({
-    sign_text = {
-        error = "E",
-        warn = "W",
-        info = "I",
-        hint = "H",
+lsp.set_preferences({
+    sign_icons = {
+        sign_text = {
+            error = "E",
+            warn = "W",
+            info = "I",
+            hint = "H",
+        }
     }
 })
 

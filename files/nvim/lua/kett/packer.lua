@@ -127,17 +127,18 @@ return require('packer').startup(function(use)
 
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v4.x',
+        branch = 'v3.x',
         requires = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},
+
             {
-                'williamboman/mason.nvim',
-                config = function ()
-                    require("mason").setup()
+                "dundalek/lazy-lsp.nvim",
+                requires = { "neovim/nvim-lspconfig" },
+                config = function()
+                    require("lazy-lsp").setup {}
                 end
             },
-            {'williamboman/mason-lspconfig.nvim'},
 
             -- Autocompletion
             {'hrsh7th/nvim-cmp'},
