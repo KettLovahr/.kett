@@ -12,8 +12,6 @@ lsp.set_preferences({
     }
 })
 
-
-
 lspconfig.lua_ls.setup{
     settings = {
         Lua = {

@@ -136,7 +136,16 @@ return require('packer').startup(function(use)
                 "dundalek/lazy-lsp.nvim",
                 requires = { "neovim/nvim-lspconfig" },
                 config = function()
-                    require("lazy-lsp").setup {}
+                    require('lazy-lsp').setup({
+                        excluded_servers = {
+                            "ltex", -- Dictionary feature annoying, especially
+                                    -- when the dictionary is in English, but
+                                    -- the book is in Portuguese.
+                        },
+                        preferred_servers = {
+                            python = { "pylsp", "ruff" }
+                        }
+                    })
                 end
             },
 
