@@ -29,13 +29,20 @@ left_prompt() {
     branch=$fg[yellow]
     directory=$fg[cyan]
 
+
     echo -n "%{$bracket%}%B[%{$user%}%n%{$branch%}@%{$machine%}%m%{$bracket%}]%b"
+
+    # Display distrobox container name
+    if test -n "$CONTAINER_ID"; then
+        echo -n "%{$machine%}%B[$CONTAINER_ID]%{$reset_color%}%b"
+    fi
 
     if [[ -a .git ]]
     then
         GIT=$(git branch | grep "*" | cut -b 3-) 
     fi
 
+    # Show git branch
     if [[ -n "$GIT" ]]
     then
         echo -n "%{$branch%}[$GIT]%{$reset_color%}"
@@ -206,3 +213,15 @@ export TIMEFMT='Time: %mE (%uE)'
 
 
 export HSA_OVERRIDE_GFX_VERSION="10.3.0"
+
+# Container-specific environment configuration
+
+# Set-up DevKitPro environment variables for 3DS homebrew development
+if [[ $CONTAINER_ID -eq "dkp-arch" ]]; then
+    export DEVKITPRO=/opt/devkitpro
+    export DEVKITARM=/opt/devkitpro/devkitARM
+    export DEVKITPPC=/opt/devkitpro/devkitPPC
+
+    export PATH=$PATH:$DEVKITARM/bin:$DEVKITPRO/tools/bin
+    echo "DevKitPro environment variables have been set up."
+fi
