@@ -217,7 +217,7 @@ export HSA_OVERRIDE_GFX_VERSION="10.3.0"
 # Container-specific environment configuration
 
 # Set-up DevKitPro environment variables for 3DS homebrew development
-if [[ $CONTAINER_ID -eq "dkp-arch" ]]; then
+if [ "$CONTAINER_ID" == "dkp-arch" ]; then
     export DEVKITPRO=/opt/devkitpro
     export DEVKITARM=/opt/devkitpro/devkitARM
     export DEVKITPPC=/opt/devkitpro/devkitPPC
