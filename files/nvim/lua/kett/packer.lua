@@ -143,7 +143,8 @@ return require('packer').startup(function(use)
                                     -- the book is in Portuguese.
                         },
                         preferred_servers = {
-                            python = { "pylsp", "ruff" }
+                            python = { "pylsp", "ruff" },
+                            cs = { "omnisharp" },
                         }
                     })
                 end
