@@ -225,3 +225,6 @@ if [ "$CONTAINER_ID" == "dkp-arch" ]; then
     export PATH=$PATH:$DEVKITARM/bin:$DEVKITPRO/tools/bin
     echo "DevKitPro environment variables have been set up."
 fi
+
+# Don't take up all system resources compiling updates
+export NIX_BUILD_CORES=1
