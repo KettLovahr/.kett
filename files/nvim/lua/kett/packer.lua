@@ -145,6 +145,8 @@ return require('packer').startup(function(use)
                         preferred_servers = {
                             python = { "pylsp", "ruff" },
                             cs = { "omnisharp" },
+                            c = { "clangd" },
+                            cpp = { "clangd" },
                         }
                     })
                 end
