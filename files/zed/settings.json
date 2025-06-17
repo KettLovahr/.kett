@@ -7,6 +7,12 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "outline_panel": {
+    "dock": "right"
+  },
+  "project_panel": {
+    "dock": "left"
+  },
   "collaboration_panel": { "button": false },
   "features": {
     "inline_completion_provider": "none",
@@ -14,7 +20,7 @@
   },
   "assistant": {
     "version": "2",
-    "enabled": true,
+    "enabled": false,
     "button": false,
     "dock": null,
     "default_model": {
@@ -30,7 +36,7 @@
     }
   },
   "vim_mode": true,
-  "ui_font_size": 14,
+  "ui_font_size": 16,
   "buffer_font_size": 18,
   "buffer_line_height": { "custom": 1.2 },
   "theme": {
@@ -38,11 +44,25 @@
     "light": "One Light",
     "dark": "Catppuccin Mocha (Blur)"
   },
-  "buffer_font_family": "Liberation Mono",
+  "buffer_font_family": "Iosevka",
   "buffer_font_weight": 400,
   "ui_font_family": "Noto Sans",
   "inlay_hints": {
     "enabled": false
+  },
+  "lsp": {
+    "omnisharp": {
+      "binary": {
+        "path": "nix-shell",
+        "arguments": [
+          "-p",
+          "omnisharp-roslyn",
+          "dotnet-sdk",
+          "--command",
+          "OmniSharp -lsp"
+        ]
+      }
+    }
   },
   "diagnostics": {
     "include_warnings": true
@@ -66,15 +86,18 @@
     "error.background": "#232634",
     "hint.background": "#232634",
     "background": "#1e1e2ee7",
-    "title_bar.background": "#1e1e2eff",
-    "status_bar.background": "#1e1e2eff",
+    "title_bar.background": "#181926",
+    "status_bar.background": "#181926",
     "tab_bar.background": "#1e1e2eff",
     "surface.background": "#00000000",
     "tab.active_background": "#313244",
     "ghost_element.hover": "#3132447f",
     "ghost_element.selected": "#313244",
     "editor.active_line.background": "#313244",
-    "terminal.background": "#181926d9"
+    "terminal.background": "#181926d9",
+    "panel.background": "#181926",
+    "editor.line_number": "#45475a",
+    "editor.active_line_number": "#b4befe"
   },
   "chat_panel": {
     "button": false
