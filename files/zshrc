@@ -23,34 +23,39 @@ print_exit() {
 }
 
 left_prompt() {
-    bracket=$fg[green]
-    user=$fg[cyan]
-    machine=$fg[red]
-    branch=$fg[yellow]
-    directory=$fg[cyan]
-
-
-    echo -n "%{$bracket%}%B[%{$user%}%n%{$branch%}@%{$machine%}%m%{$bracket%}]%b"
-
-    # Display distrobox container name
-    if test -n "$CONTAINER_ID"; then
-        echo -n "%{$machine%}%B[$CONTAINER_ID]%{$reset_color%}%b"
-    fi
-
-    if [[ -a .git ]]
-    then
-        GIT=$(git branch | grep "*" | cut -b 3-) 
-    fi
-
-    # Show git branch
-    if [[ -n "$GIT" ]]
-    then
-        echo -n "%{$branch%}[$GIT]%{$reset_color%}"
+    starship_exists=$(which starship)
+    if [ -x "$starship_exists" ]; then
+        starship prompt
     else
-        echo -n "%{$reset_color%}"
-    fi
+        bracket=$fg[green]
+        user=$fg[cyan]
+        machine=$fg[red]
+        branch=$fg[yellow]
+        directory=$fg[cyan]
 
-    echo -n "%{$directory%} %3~ %{$reset_color%}"
+
+        echo -n "%{$bracket%}%B[%{$user%}%n%{$branch%}@%{$machine%}%m%{$bracket%}]%b"
+
+        # Display distrobox container name
+        if test -n "$CONTAINER_ID"; then
+            echo -n "%{$machine%}%B[$CONTAINER_ID]%{$reset_color%}%b"
+        fi
+
+        if [[ -a .git ]]
+        then
+            GIT=$(git branch | grep "*" | cut -b 3-) 
+        fi
+
+        # Show git branch
+        if [[ -n "$GIT" ]]
+        then
+            echo -n "%{$branch%}[$GIT]%{$reset_color%}"
+        else
+            echo -n "%{$reset_color%}"
+        fi
+
+        echo -n "%{$directory%} %3~ %{$reset_color%}"
+    fi
 }
 
 right_prompt() {
@@ -63,7 +68,7 @@ add-zsh-hook precmd print_exit
 
 PS1='$status_code$(left_prompt)'
 
-RPROMPT='$(right_prompt)'
+# RPROMPT='$(right_prompt)'
 
 setopt histignorealldups sharehistory
 setopt autocd
