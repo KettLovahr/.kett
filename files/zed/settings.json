@@ -62,6 +62,18 @@
           "OmniSharp -lsp"
         ]
       }
+    },
+    "nixd": {
+      "binary": {
+        "path": "nix-shell",
+        "arguments": ["-p", "nixd", "--command", "nixd"]
+      }
+    },
+    "clangd": {
+      "binary": {
+        "path": "nix-shell",
+        "arguments": ["-p", "clang-tools", "--command", "clangd"]
+      }
     }
   },
   "diagnostics": {
