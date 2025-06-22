@@ -17,11 +17,15 @@
     "command": "fbc -x .test.out $ZED_FILE && ./.test.out"
   },
   {
-    "label": "Dotnet run script",
-    "command": "dotnet script $ZED_FILE"
+    "label": "Run C# File (Mono)",
+    "command": "mcs $ZED_FILE -out:.cs_script.exe && mono .cs_script.exe; rm .cs_script.exe"
   },
   {
     "label": "Dotnet run",
     "command": "dotnet run"
+  },
+  {
+    "label": "Run build.sh script",
+    "command": "./build.sh"
   }
 ]
