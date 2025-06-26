@@ -15,10 +15,10 @@
   },
   "collaboration_panel": { "button": false },
   "features": {
-    "inline_completion_provider": "none",
+    "edit_prediction_provider": "none",
     "copilot": false
   },
-  "assistant": {
+  "agent": {
     "version": "2",
     "enabled": false,
     "button": false,
@@ -112,7 +112,7 @@
     "editor.active_line_number": "#b4befe"
   },
   "chat_panel": {
-    "button": false
+    "button": "never"
   },
   "soft_wrap": "editor_width"
 }
