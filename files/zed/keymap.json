@@ -21,6 +21,12 @@
     }
   },
   {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "shift-s": ["vim::PushAddSurrounds", {}]
+    }
+  },
+  {
     "context": "Editor && renaming",
     "bindings": {
       "ctrl-w": ["workspace::SendKeystrokes", "ctrl-backspace"]
