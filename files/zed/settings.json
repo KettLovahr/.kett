@@ -28,6 +28,11 @@
       "model": "deepseek-r1:8b"
     }
   },
+  "languages": {
+    "GDScript": {
+      "hard_tabs": true
+    }
+  },
   "git": {
     "git_gutter": "tracked_files",
     "gutter_debounce": null,
