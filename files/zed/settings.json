@@ -123,13 +123,17 @@
     "tab_bar.background": "#1e1e2eff",
     "surface.background": "#00000000",
     "tab.active_background": "#313244",
+    "scrollbar.thumb.background": "#b4befe1f",
+    "scrollbar.thumb.active_background": "#b4befe3f",
+    "scrollbar.thumb.hover_background": "#b4befe2f",
     "ghost_element.hover": "#3132447f",
     "ghost_element.selected": "#313244",
     "editor.active_line.background": "#313244",
     "terminal.background": "#181926d9",
     "panel.background": "#181926",
     "editor.line_number": "#45475a",
-    "editor.active_line_number": "#b4befe"
+    "editor.active_line_number": "#b4befe",
+    "element.active": "#b4befe"
   },
   "chat_panel": {
     "button": "never"

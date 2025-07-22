@@ -209,6 +209,7 @@ export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.cosmocc/bin"
 export PATH="$PATH:$HOME/.freebasic/bin"
 export DOTNET_ROOT="$HOME/.dotnet/"
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
 # shut up
 export WINEDEBUG='-all'
