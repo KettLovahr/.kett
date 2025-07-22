@@ -94,6 +94,17 @@
         "path": "nix-shell",
         "arguments": ["-p", "clang-tools", "--command", "clangd"]
       }
+    },
+    "lua-language-server": {
+      "binary": {
+        "path": "nix-shell",
+        "arguments": [
+          "-p",
+          "lua-language-server",
+          "--command",
+          "lua-language-server"
+        ]
+      }
     }
   },
   "diagnostics": {
