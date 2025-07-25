@@ -21,6 +21,10 @@
     "command": "mcs $ZED_FILE -out:.cs_script.exe && mono .cs_script.exe; rm .cs_script.exe"
   },
   {
+    "label": "Run F# File (Mono)",
+    "command": "fsc $ZED_FILE --out:.fs_script.exe && mono .fs_script.exe; rm .fs_script.exe"
+  },
+  {
     "label": "Dotnet run",
     "command": "dotnet run"
   },
