@@ -32,6 +32,9 @@
     "GDScript": {
       "hard_tabs": true
     },
+    "FSharp": {
+      "format_on_save": "off"
+    },
     "Nix": {
       "language_servers": ["nixd", "!nil"]
     }
@@ -81,6 +84,12 @@
       "binary": {
         "path": "nix-shell",
         "arguments": ["-p", "zls", "--command", "zls"]
+      }
+    },
+    "fsautocomplete": {
+      "binary": {
+        "path": "nix-shell",
+        "arguments": ["-p", "fsautocomplete", "--command", "fsautocomplete"]
       }
     },
     "nixd": {
