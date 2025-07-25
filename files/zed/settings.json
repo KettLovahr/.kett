@@ -125,6 +125,7 @@
     "csharp": true,
     "emmet": true,
     "gdscript": true,
+    "fsharp": true,
     "git-firefly": true,
     "html": true,
     "java": true,
