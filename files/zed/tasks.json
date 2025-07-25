@@ -25,6 +25,10 @@
     "command": "fsc $ZED_FILE --out:.fs_script.exe && mono .fs_script.exe; rm .fs_script.exe"
   },
   {
+    "label": "Run F# File (.NET)",
+    "command": "dotnet fsi $ZED_FILE"
+  },
+  {
     "label": "Dotnet run",
     "command": "dotnet run"
   },
