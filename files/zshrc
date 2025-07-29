@@ -162,6 +162,7 @@ export PATH="$PATH:$HOME/Android/Sdk/tools/bin"
 export PATH="$PATH:$HOME/.dotnet/:$HOME/.dotnet/tools/"
 export PATH="$PATH:$HOME/.local/share/bob/nvim-bin/"
 export PATH="$PATH:$HOME/.zig/"
+export PATH="$PATH:$HOME/Documents/KettExecTools"
 
 export EDITOR=$(which nvim)
 export STEAM_COMPAT_DATA_PATH="/home/bluefire/.proton"
@@ -208,7 +209,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.cosmocc/bin"
 export PATH="$PATH:$HOME/.freebasic/bin"
-export DOTNET_ROOT="$HOME/.dotnet/"
+# export DOTNET_ROOT="$HOME/.dotnet/"
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
 # shut up
