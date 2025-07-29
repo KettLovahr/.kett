@@ -26,6 +26,7 @@ vim.opt.updatetime = 100
 vim.opt.fillchars= "eob: ,"
 
 if vim.g.neovide then
+    vim.opt.linespace = -1
     vim.opt.guifont = "Iosevka Extended:h14"
 
     local toggle_fullscreen =  function()
