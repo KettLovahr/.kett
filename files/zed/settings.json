@@ -15,11 +15,9 @@
   },
   "collaboration_panel": { "button": false },
   "features": {
-    "edit_prediction_provider": "none",
-    "copilot": false
+    "edit_prediction_provider": "none"
   },
   "agent": {
-    "version": "2",
     "enabled": false,
     "button": false,
     "dock": null,
@@ -53,7 +51,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Mocha (Blur)"
+    "dark": "Tokyo Night"
   },
   "buffer_font_family": "Iosevka",
   "buffer_font_weight": 400,
@@ -121,7 +119,6 @@
   },
   "auto_install_extensions": {
     "catppuccin": true,
-    "catppuccin-blur": true,
     "csharp": true,
     "emmet": true,
     "gdscript": true,
@@ -131,31 +128,32 @@
     "java": true,
     "lua": true,
     "svelte": true,
+    "tokyo-night": true,
     "toml": true,
     "zig": true
   },
-  "experimental.theme_overrides": {
-    "warning.background": "#232634",
-    "error.background": "#232634",
-    "hint.background": "#232634",
-    "background": "#1e1e2ee7",
-    "title_bar.background": "#181926",
-    "status_bar.background": "#181926",
-    "tab_bar.background": "#1e1e2eff",
-    "surface.background": "#00000000",
-    "tab.active_background": "#313244",
-    "scrollbar.thumb.background": "#b4befe1f",
-    "scrollbar.thumb.active_background": "#b4befe3f",
-    "scrollbar.thumb.hover_background": "#b4befe2f",
-    "ghost_element.hover": "#3132447f",
-    "ghost_element.selected": "#313244",
-    "editor.active_line.background": "#313244",
-    "terminal.background": "#181926d9",
-    "panel.background": "#181926",
-    "editor.line_number": "#45475a",
-    "editor.active_line_number": "#b4befe",
-    "element.active": "#b4befe"
-  },
+  // "experimental.theme_overrides": {
+  //   "warning.background": "#232634",
+  //   "error.background": "#232634",
+  //   "hint.background": "#232634",
+  //   "background": "#1e1e2ee7",
+  //   "title_bar.background": "#181926",
+  //   "status_bar.background": "#181926",
+  //   "tab_bar.background": "#1e1e2eff",
+  //   "surface.background": "#00000000",
+  //   "tab.active_background": "#313244",
+  //   "scrollbar.thumb.background": "#b4befe1f",
+  //   "scrollbar.thumb.active_background": "#b4befe3f",
+  //   "scrollbar.thumb.hover_background": "#b4befe2f",
+  //   "ghost_element.hover": "#3132447f",
+  //   "ghost_element.selected": "#313244",
+  //   "editor.active_line.background": "#313244",
+  //   "terminal.background": "#181926d9",
+  //   "panel.background": "#181926",
+  //   "editor.line_number": "#45475a",
+  //   "editor.active_line_number": "#b4befe",
+  //   "element.active": "#b4befe"
+  // },
   "chat_panel": {
     "button": "never"
   },
