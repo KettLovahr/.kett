@@ -33,6 +33,9 @@ left_prompt() {
         branch=$fg[yellow]
         directory=$fg[cyan]
 
+        if [ -n "$IN_NIX_SHELL" ]; then
+            echo -n "%{$user%}[dev-shell]"
+        fi
 
         echo -n "%{$bracket%}%B[%{$user%}%n%{$branch%}@%{$machine%}%m%{$bracket%}]%b"
 
