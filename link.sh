@@ -19,6 +19,11 @@ function create_config_link() {
     echo ":: Done"
 }
 
+echo ":: Installing Packer"
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+echo ":: Fetching submodules"
+git submodule update --init --recursive
+
 create_config_link "$PWD/files/nvim"       "$HOME/.config/nvim" "Neovim"
 
 create_config_link "$PWD/files/zshrc"      "$HOME/.zshrc"       "ZShell Config"
